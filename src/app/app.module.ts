@@ -9,6 +9,8 @@ import { HomePage } from '../pages/home/home';
 import { DetailPage } from '../pages/detail/detail';
 import { AddNotePage } from '../pages/addNotePage/addNotePage';
 import { NoteService } from '../services/note.service';
+import { IonicStorageModule } from '@ionic/storage';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { NoteService } from '../services/note.service';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [

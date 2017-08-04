@@ -17,7 +17,10 @@ export class HomePage {
   }
 
   ionViewWillEnter() {
-    this.notes = this.noteService.getNotes();
+    this.noteService.getNotes()
+      .then(
+        (notes) => this.notes = notes
+      );
   }
 
   public onAddBtnClicked(): void{
