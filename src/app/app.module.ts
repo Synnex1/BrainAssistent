@@ -10,7 +10,7 @@ import { DetailPage } from '../pages/detail/detail';
 import { AddNotePage } from '../pages/addNotePage/addNotePage';
 import { NoteService } from '../services/note.service';
 import { IonicStorageModule } from '@ionic/storage';
-
+import { Geolocation } from '@ionic-native/geolocation';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,8 @@ import { IonicStorageModule } from '@ionic/storage';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    NoteService
+    NoteService,
+    Geolocation
   ]
 })
 export class AppModule {}
