@@ -27,7 +27,10 @@ export class HomePage {
     this.navCtrl.push(AddNotePage)
   }
 
-  public viewDetails(noteId): void{
-    this.navCtrl.push(DetailPage)
+  public viewDetails(note): void{
+    this.navCtrl.push(DetailPage, {
+      title: note.title,
+      description: note.description
+    });
   }
 }

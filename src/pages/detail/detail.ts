@@ -8,10 +8,11 @@ import { HomePage } from '../home/home';
   templateUrl: 'detail.html',
 })
 export class DetailPage {
-  note: any;
+  note: {title: string, description: string} = {title:"", description:""};
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.note = navParams.get('notes');
+  	this.note.title = this.navParams.get("title");
+  	this.note.description = this.navParams.get("description")
   }
 
   ionViewDidLoad() {
