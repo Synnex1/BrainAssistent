@@ -1,0 +1,16 @@
+<ion-header>
+
+    <ion-navbar color="primary">
+        <ion-title>New Note</ion-title>
+
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+    <form padding (ngSubmit)="addNewNote(f.value)" #f="ngForm">
+        <ion-input type="text" placeholder="Title" name="title" ngModel></ion-input>
+        <ion-textarea type="text" placeholder="Description" name="description" ngModel required></ion-textarea>
+        <button ion-button block color="dark" type="submit" [disabled]="!f.valid">Save</button>
+    </form>
+</ion-content>
