@@ -30,8 +30,7 @@ export class HomePage {
 
   public viewDetails(note): void{
     this.navCtrl.push(DetailPage, {
-      title: note.title,
-      description: note.description
+      note: note
     });
   }
 

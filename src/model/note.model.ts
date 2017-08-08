@@ -1,8 +1,10 @@
-export interface Note {
-    title: string;
-    description: string;
-    location: {
-         lat: number,
-         lng: number
-        }
+export class Note {
+	type: string = "";
+	title: string = "";
+	description: string = "";
+	location: {lat: number, lng: number};
+	
+	constructor(argument) {
+		// code...
+	}
 }
