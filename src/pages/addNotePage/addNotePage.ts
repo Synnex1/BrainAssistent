@@ -19,11 +19,7 @@ export class AddNotePage {
               private modalCtrl: ModalController) {
   }
 
-  public addNewNote(value: {type: string, title: string, description: string}) {
-    this.note.type = value.type;
-    this.note.title = value.title;
-    this.note.description = value.description;
-
+  public addNewNote() {
     this.noteService.addNote(this.note);
     console.log('new note was added to the list');
     this.navCtrl.pop();    

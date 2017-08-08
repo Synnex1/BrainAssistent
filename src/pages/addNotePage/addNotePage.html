@@ -6,10 +6,10 @@
 </ion-header>
 
 <ion-content>
-    <form padding (ngSubmit)="addNewNote(f.value)" #f="ngForm">
-        <ion-input type="text" placeholder="Type" name="type" ngModel required></ion-input>
-        <ion-input type="text" placeholder="Title" name="title" ngModel required style="font-weight: bold;"></ion-input>
-        <ion-textarea type="text" placeholder="Description" name="description" ngModel></ion-textarea>
+    <form (ngSubmit)="addNewNote()">
+        <ion-input type="text" placeholder="Type" required [(ngModel)]="note.type" name="type" ></ion-input>
+        <ion-input type="text" placeholder="Title" required [(ngModel)]="note.title" name="title"></ion-input>
+        <ion-textarea type="text" placeholder="Description" [(ngModel)]="note.description" name="description"></ion-textarea>
         <button ion-button block color="dark" type="submit" [disabled]="!f.valid">Save</button>
     </form>
 </ion-content>
