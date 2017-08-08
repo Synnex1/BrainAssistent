@@ -8,16 +8,14 @@ import { Geolocation } from '@ionic-native/geolocation';
   templateUrl: 'my-location.html',
 })
 export class MyLocationPage {
-  lat: number;
-  lng: number;
+  lat: number = 0;
+  lng: number = 0;
 
   constructor(private viewCtrl: ViewController,
               private navParams: NavParams,
               private geolocation: Geolocation,
               private toastCtrl: ToastController) {
-                
-    this.lat = this.navParams.data.location.lat;
-    this.lng = this.navParams.data.location.lng;
+
   }
 
   public goBacktoHomescreen(){

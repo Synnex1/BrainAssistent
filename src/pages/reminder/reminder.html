@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Reminder</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-item border>
+        <ion-label>Pick your Date and Time</ion-label>
+        <ion-datetime displayFormat="DD MMM, YYYY HH:mm" [(ngModel)]="myDate"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+        <ion-textarea placeholder="Notification"></ion-textarea>
+    </ion-item>
+
+    <button ion-button block color="dark">Set Reminder</button>
+    <button ion-button block color="danger" (click)="dismissReminder()">Dismiss</button>
+</ion-content>
