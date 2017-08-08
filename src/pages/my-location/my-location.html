@@ -9,7 +9,13 @@
 
 <ion-content padding>
     <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="16">
-
     </sebm-google-map>
-    <button ion-button block click="goBacktoHomescreen()">Dismiss</button>
+
+    <button ion-button block (click)="goBacktoHomescreen()">Dismiss</button>
+
+    <ion-fab button right bottom>
+        <button ion-fab mini color="primary" (click)="onLocateMe()">
+          <ion-icon name="md-locate"></ion-icon>
+        </button>
+    </ion-fab>
 </ion-content>

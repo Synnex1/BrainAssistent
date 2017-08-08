@@ -10,7 +10,7 @@ import { Geolocation } from '@ionic-native/geolocation';
   templateUrl: 'addNotePage.html',
 })
 export class AddNotePage {
-  location: {lat: number, lng: number} = {lat: 0, lng:0};
+  location: {lat: number, lng: number} = {lat: 51.1758388, lng:10.929209};
 
   constructor(private noteService: NoteService,
               private navCtrl: NavController,
@@ -24,26 +24,10 @@ export class AddNotePage {
     this.navCtrl.pop();    
   }
 
-  
-  public onLocateUser(){
-    this.geolocation.getCurrentPosition()
-      .then(
-        (location) => {
-          console.log('Location fetched successfully');
-          this.location.lat = location.coords.latitude;
-          this.location.lng = location.coords.longitude;
-        }
-        
-      )
-      .catch(
-        (Error) => console.log('Location could not be found!')
-      );
-  }
-
   public onOpenAddMyLocation(): void{
     //this.navCtrl.push(MyLocationPage);
-    this.modalCtrl.create(MyLocationPage, this.location).present();
-    console.log('OPENADDMYLOCATION WAS CLICKED'); 
+    this.modalCtrl.create(MyLocationPage, {location: this.location}).present();
+    console.log('OPENADDMYLOCATION WAS CLICKED');
   }
 
   

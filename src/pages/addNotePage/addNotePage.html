@@ -1,21 +1,16 @@
 <ion-header>
     <ion-navbar color="primary">
         <ion-title>New Note</ion-title>
-
+        <button ion-button right>Save</button>
     </ion-navbar>
 </ion-header>
 
 <ion-content>
     <form padding (ngSubmit)="addNewNote(f.value)" #f="ngForm">
-        <ion-input type="text" placeholder="Title" name="title" ngModel></ion-input>
+        <ion-input type="text" placeholder="Title" name="title" ngModel style="font-weight: bold;"></ion-input>
         <ion-textarea type="text" placeholder="Description" name="description" ngModel required></ion-textarea>
         <button ion-button block color="dark" type="submit" [disabled]="!f.valid">Save</button>
     </form>
-    <ion-grid>
-        <ion-row>
-            <ion-col><button ion-button block (click)="onLocateUser()">Locate me</button></ion-col>
-        </ion-row>
-    </ion-grid>
 </ion-content>
 
 <ion-footer>
