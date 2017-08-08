@@ -7,8 +7,9 @@
 
 <ion-content>
     <form padding (ngSubmit)="addNewNote(f.value)" #f="ngForm">
-        <ion-input type="text" placeholder="Title" name="title" ngModel style="font-weight: bold;"></ion-input>
-        <ion-textarea type="text" placeholder="Description" name="description" ngModel required></ion-textarea>
+        <ion-input type="text" placeholder="Type" name="type" ngModel required></ion-input>
+        <ion-input type="text" placeholder="Title" name="title" ngModel required style="font-weight: bold;"></ion-input>
+        <ion-textarea type="text" placeholder="Description" name="description" ngModel></ion-textarea>
         <button ion-button block color="dark" type="submit" [disabled]="!f.valid">Save</button>
     </form>
 </ion-content>
