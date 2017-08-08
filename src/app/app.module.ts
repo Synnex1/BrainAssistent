@@ -10,6 +10,7 @@ import { DetailPage } from '../pages/detail/detail';
 import { AddNotePage } from '../pages/addNotePage/addNotePage';
 import { MyLocationPage } from '../pages/my-location/my-location';
 import { ReminderPage } from '../pages/reminder/reminder';
+import { ImagePage } from '../pages/image/image';
 
 import { NoteService } from '../services/note.service';
 import { IonicStorageModule } from '@ionic/storage';
@@ -23,7 +24,8 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
     DetailPage,
     AddNotePage,
     MyLocationPage,
-    ReminderPage
+    ReminderPage,
+    ImagePage
 
   ],
   imports: [
@@ -42,7 +44,8 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
     DetailPage,
     AddNotePage,
     MyLocationPage,
-    ReminderPage
+    ReminderPage,
+    ImagePage
   ],
   providers: [
     StatusBar,

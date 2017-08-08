@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { HomePage } from '../home/home';
 import { MyLocationPage } from '../my-location/my-location';
 import { ReminderPage } from '../reminder/reminder';
+import { ImagePage } from '../image/image';
+
 import { NoteService } from '../../services/note.service';
 import { NavController, ModalController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
@@ -34,7 +36,13 @@ export class AddNotePage {
 
   public onOpenAddReminder(): void{
     this.modalCtrl.create(ReminderPage).present();
-    console.log('OPENADDMYLOCATION WAS CLICKED');
+    console.log('OPENADDREMINDER WAS CLICKED');
   }
+
+  public onOpenAddImage(): void{
+    this.modalCtrl.create(ImagePage).present();
+    console.log('OPENADDIMAGE WAS CLICKED');
+  }
+
   
 }
