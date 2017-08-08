@@ -4,13 +4,14 @@ import { Http } from '@angular/http';
 import { DetailPage } from '../detail/detail';
 import { AddNotePage } from '../addNotePage/addNotePage';
 import { NoteService } from '../../services/note.service';
+import { Note } from '../../model/note.model';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  notes: {title: string, description: string}[] = [];
+  notes: Note[] = [];
 
   constructor(public navCtrl: NavController, private noteService: NoteService) {
     
