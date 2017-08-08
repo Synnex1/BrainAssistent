@@ -11,7 +11,7 @@ import { Note } from '../../model/note.model';
   templateUrl: 'addNotePage.html',
 })
 export class AddNotePage {
-  note: Note;
+  note: Note = new Note();
 
   constructor(private noteService: NoteService,
               private navCtrl: NavController,

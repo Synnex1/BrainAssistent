@@ -4,7 +4,6 @@ export class Note {
 	description: string = "";
 	location: {lat: number, lng: number} = null;
 	
-	constructor(argument) {
-		// code...
+	constructor() {
 	}
 }
