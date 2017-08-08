@@ -42,8 +42,8 @@ export class AddNotePage {
 
   public onOpenAddMyLocation(): void{
     //this.navCtrl.push(MyLocationPage);
-    this.modalCtrl.create(MyLocationPage, ).present();
-    console.log('OPENADDMYLOCATION WAS CLICKED');
+    this.modalCtrl.create(MyLocationPage, this.location).present();
+    console.log('OPENADDMYLOCATION WAS CLICKED'); 
   }
 
   
