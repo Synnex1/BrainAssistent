@@ -8,21 +8,29 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { DetailPage } from '../pages/detail/detail';
 import { AddNotePage } from '../pages/addNotePage/addNotePage';
+import { MyLocationPage } from '../pages/my-location/my-location';
+
 import { NoteService } from '../services/note.service';
 import { IonicStorageModule } from '@ionic/storage';
 import { Geolocation } from '@ionic-native/geolocation';
+import { AgmCoreModule } from 'angular2-google-maps/core';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     DetailPage,
-    AddNotePage
+    AddNotePage,
+    MyLocationPage
+
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBefatqdyh0dzJbRpnLhGEwP0l5_rV_MD0'
+    })
 
   ],
   bootstrap: [IonicApp],
@@ -30,7 +38,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     MyApp,
     HomePage,
     DetailPage,
-    AddNotePage
+    AddNotePage,
+    MyLocationPage
   ],
   providers: [
     StatusBar,

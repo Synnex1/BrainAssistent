@@ -24,7 +24,7 @@ export class HomePage {
   }
 
   public onAddBtnClicked(): void{
-    this.navCtrl.push(AddNotePage)
+    this.navCtrl.push(AddNotePage);
   }
 
   public viewDetails(note): void{
@@ -33,4 +33,6 @@ export class HomePage {
       description: note.description
     });
   }
+
+
 }

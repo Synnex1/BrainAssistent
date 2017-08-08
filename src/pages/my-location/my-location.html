@@ -1,0 +1,15 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>MyLocation</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="16">
+
+    </sebm-google-map>
+    <button ion-button block click="goBacktoHomescreen()">Dismiss</button>
+</ion-content>

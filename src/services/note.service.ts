@@ -1,15 +1,22 @@
 import { Storage } from '@ionic/storage';
 import { Injectable } from '@angular/core';
+import { Note } from '../model/note.model';
 
 @Injectable()
 export class NoteService {
-    private notes : {title: string, description: string}[] = [];
+    private notes : Note[] = [];
 
 constructor(private storage: Storage) {
 }
 
-    addNote(note: {title: string, description: string}) {
+    addNote(note: Note) {
         this.notes.push(note);
+        this.storage.set('notes', this.notes);
+    }
+
+    //not working yet ------------------------------------------------>
+     removeNote(note: Note) {
+        this.notes.splice(this.notes.indexOf(note));
         this.storage.set('notes', this.notes);
     }
 
