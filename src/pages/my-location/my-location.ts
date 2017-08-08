@@ -18,11 +18,16 @@ export class MyLocationPage {
 
   }
 
-  public goBacktoHomescreen(){
+  public dismissLocation(){
     this.viewCtrl.dismiss();  
   }
 
-  onLocateMe(){
+  public saveLocation(){
+    //return Location coords ------------------------------------------------------->
+    //exit Modal View
+  }
+
+  public onLocateMe(){
     this.geolocation.getCurrentPosition()
       .then(
         (location) => {

@@ -8,6 +8,7 @@ import { NoteService } from '../../services/note.service';
 import { NavController, ModalController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Note } from '../../model/note.model';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 @Component({
   selector: 'addNotePage',
@@ -19,7 +20,8 @@ export class AddNotePage {
   constructor(private noteService: NoteService,
               private navCtrl: NavController,
               private geolocation: Geolocation,
-              private modalCtrl: ModalController) {
+              private modalCtrl: ModalController,
+              private locNotific: LocalNotifications) {
   }
 
   public addNewNote() {
@@ -48,5 +50,14 @@ export class AddNotePage {
     console.log('OPENADDIMAGE WAS CLICKED');
   }
 
+  public onOpenAddColor(): void{
+    // Pop-up with several colors to select ------------------------------------------>
+    console.log('OPENADDCOLOR WAS CLICKED');
+  }
+
+  public onOpenAddVoice(): void{
+    // Pop-up with button to record your voice --------------------------------------->
+    console.log('OPENADDVOICE WAS CLICKED');
+  }
   
 }

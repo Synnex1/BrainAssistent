@@ -11,7 +11,9 @@
     <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="16">
     </sebm-google-map>
 
-    <button ion-button block color="dark" (click)="goBacktoHomescreen()">Dismiss</button>
+    <button ion-button block color="dark" (click)="saveLocation()">Save This Location</button>
+
+    <button ion-button block color="danger" (click)="dismissLocation()">Dismiss</button>
 
     <ion-fab button right bottom>
         <button ion-fab mini color="primary" (click)="onLocateMe()">

@@ -16,6 +16,7 @@ import { NoteService } from '../services/note.service';
 import { IonicStorageModule } from '@ionic/storage';
 import { Geolocation } from '@ionic-native/geolocation';
 import { AgmCoreModule } from 'angular2-google-maps/core';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     NoteService,
-    Geolocation
+    Geolocation,
+    LocalNotifications
   ]
 })
 export class AppModule {}
