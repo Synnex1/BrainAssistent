@@ -7,6 +7,8 @@ import { ViewController } from 'ionic-angular';
   templateUrl: 'reminder.html',
 })
 export class ReminderPage {
+  myDate: String = new Date().toISOString();
+  myNotification: string;
 
   constructor(public viewCtrl: ViewController) {
   }
@@ -16,6 +18,12 @@ export class ReminderPage {
   }
 
   dismissReminder(){
+    this.viewCtrl.dismiss();
+  }
+
+  setReminder(myDate, myNotification){
+    //return data to addNotePage ------------------------------------------------->
+    //then
     this.viewCtrl.dismiss();
   }
 

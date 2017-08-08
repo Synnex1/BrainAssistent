@@ -6,15 +6,17 @@
 
 
 <ion-content padding>
-    <ion-item border>
-        <ion-label>Pick your Date and Time</ion-label>
-        <ion-datetime displayFormat="DD MMM, YYYY HH:mm" [(ngModel)]="myDate"></ion-datetime>
+    <ion-item>
+        <ion-label>Pick your Date and Time:</ion-label>
+    </ion-item>
+    <ion-item>
+        <ion-datetime displayFormat="DD MMM, YYYY HH:mm" min="2017" max="2100-12-31" [(ngModel)]="myDate"></ion-datetime>
     </ion-item>
 
     <ion-item>
-        <ion-textarea placeholder="Notification"></ion-textarea>
+        <ion-textarea placeholder="Notification" [(ngModel)]="myNotification"></ion-textarea>
     </ion-item>
 
-    <button ion-button block color="dark">Set Reminder</button>
+    <button ion-button block color="dark" (click)="setReminder()">Set Reminder</button>
     <button ion-button block color="danger" (click)="dismissReminder()">Dismiss</button>
 </ion-content>

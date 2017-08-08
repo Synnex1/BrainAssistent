@@ -28,8 +28,12 @@ export class AddNotePage {
     this.navCtrl.pop();    
   }
 
+  public ionViewWillEnter() {
+    //update List with the set items ----------------------------------------------->
+    //e.g. unhide hidden items
+  }
+
   public onOpenAddMyLocation(): void{
-    //this.navCtrl.push(MyLocationPage);
     this.modalCtrl.create(MyLocationPage, {location: this.note.location}).present();
     console.log('OPENADDMYLOCATION WAS CLICKED');
   }
