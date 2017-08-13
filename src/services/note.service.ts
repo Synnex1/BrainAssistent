@@ -4,7 +4,7 @@ import { Note } from '../model/note.model';
 
 @Injectable()
 export class NoteService {
-    private notes : Note[] = [];
+private notes : Note[] = [];
 
 constructor(private storage: Storage) {
 }
@@ -30,5 +30,11 @@ constructor(private storage: Storage) {
                     return this.notes.slice();
                 }
             );
+    }
+
+    filterItems(searchTerm) {
+        return this.notes.filter((note) => {
+            return note.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+        });
     }
 }

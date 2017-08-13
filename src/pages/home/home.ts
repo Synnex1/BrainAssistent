@@ -12,16 +12,14 @@ import { Note } from '../../model/note.model';
 })
 export class HomePage {
   notes: Note[] = [];
+  searchTerm: string = '';
 
   constructor(public navCtrl: NavController, private noteService: NoteService) {
     
   }
 
   ionViewWillEnter() {
-    this.noteService.getNotes()
-      .then(
-        (notes) => this.notes = notes
-      );
+    this.setFilteredItems();
   }
 
   public onAddBtnClicked(): void{
@@ -34,5 +32,8 @@ export class HomePage {
     });
   }
 
+  setFilteredItems() {
+    this.notes = this.noteService.filterItems(this.searchTerm);
+  }
 
 }
