@@ -25,4 +25,8 @@ export class DetailPage {
   	this.noteService.removeNote(this.note);
   	this.navCtrl.pop();
   }
+
+  editNote() {
+  	this.navCtrl.pop();
+  }
 }

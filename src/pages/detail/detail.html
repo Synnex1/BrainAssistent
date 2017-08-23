@@ -9,10 +9,27 @@
 
 <ion-content padding>
 		
-		<p *ngIf="note.type">{{note.type}}</p>
-		<p *ngIf="note.title">{{note.title}}</p>
-  	<p *ngIf="note.description">{{note.description}}</p>
-  	<p *ngIf="note.location">{{note.location.lat}}, {{note.location.lng}}</p>
+		<form padding (ngSubmit)="editNote()">
+        <!--<ion-input type="text" placeholder="Type" required [(ngModel)]="note.type" name="type"></ion-input>-->
+        <ion-input type="text" placeholder="Title" required [(ngModel)]="note.title" name="title" style="font-weight: bold"></ion-input>
+        <ion-textarea type="text" placeholder="Description" [(ngModel)]="note.description" name="description"></ion-textarea>
+
+        <ion-item>
+            <ion-label>Type: </ion-label>
+            <ion-select [(ngModel)]="note.type" name="type">
+                <ion-option value="reminder">Reminder</ion-option>
+                <ion-option value="picture">Picture</ion-option>
+                <ion-option value="place">Place</ion-option>
+            </ion-select>
+        </ion-item>
+
+        <ion-item>
+            <ion-label type="date"></ion-label>
+        </ion-item>
+
+        <button ion-button block color="dark" type="submit">Save</button>
+    </form>
+
   	<button ion-button block color="danger" (click)="deleteNote()">Delete Note</button>
 
 </ion-content>
