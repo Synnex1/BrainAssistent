@@ -8,7 +8,11 @@
 
 
 <ion-content padding>
-	<p>{{note.title}}</p>
-    <p>{{note.description}}</p>
-    <button ion-button block color="danger" click="deleteNote()">Delete Note</button>
+		
+		<p *ngIf="note.type">{{note.type}}</p>
+		<p *ngIf="note.title">{{note.title}}</p>
+  	<p *ngIf="note.description">{{note.description}}</p>
+  	<p *ngIf="note.location">{{note.location.lat}}, {{note.location.lng}}</p>
+  	<button ion-button block color="danger" (click)="deleteNote()">Delete Note</button>
+
 </ion-content>

@@ -17,7 +17,7 @@ constructor(private storage: Storage) {
     //not working yet ------------------------------------------------>
      removeNote(note: Note) {
         this.notes.splice(this.notes.indexOf(note), 1);
-        this.storage.remove(note.title);
+        this.storage.set('notes', this.notes);
     }
 
     getNotes() {
@@ -32,7 +32,11 @@ constructor(private storage: Storage) {
             );
     }
 
-    filterItems(searchTerm) {
+    editNote(note: Note) {
+        
+    }
+
+    filterNotes(searchTerm) {
         return this.notes.filter((note) => {
             return note.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
         });

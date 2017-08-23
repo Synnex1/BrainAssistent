@@ -19,7 +19,7 @@ export class HomePage {
   }
 
   ionViewWillEnter() {
-    this.setFilteredItems();
+    this.setFilteredNotes();
   }
 
   public onAddBtnClicked(): void{
@@ -32,8 +32,8 @@ export class HomePage {
     });
   }
 
-  setFilteredItems() {
-    this.notes = this.noteService.filterItems(this.searchTerm);
+  setFilteredNotes() {
+    this.notes = this.noteService.filterNotes(this.searchTerm);
   }
 
 }
