@@ -17,6 +17,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { Geolocation } from '@ionic-native/geolocation';
 import { AgmCoreModule } from 'angular2-google-maps/core';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { Camera } from '@ionic-native/camera';
+
 
 @NgModule({
   declarations: [
@@ -54,7 +56,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     NoteService,
     Geolocation,
-    LocalNotifications
+    LocalNotifications,
+    Camera
   ]
 })
 export class AppModule {}

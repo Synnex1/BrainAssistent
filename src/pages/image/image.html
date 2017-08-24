@@ -9,9 +9,9 @@
 
 <ion-content padding>
 
-    <button ion-button block color="dark">Take Image</button>
+    <button ion-button block color="dark" (click)="getPictureFromCamera()">Take Image</button>
 
-    <button ion-button block color="dark">Select Image</button>
+    <button ion-button block color="dark" (click)="getPictureFromAlbum()">Select Image</button>
 
     <button ion-button block color="danger" (click)="dismissImage()">Dismiss</button>
 </ion-content>
