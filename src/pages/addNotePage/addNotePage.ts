@@ -46,7 +46,9 @@ export class AddNotePage {
   }
 
   public onOpenAddImage(): void{
-    this.modalCtrl.create(ImagePage).present();
+    this.modalCtrl.create(ImagePage, {
+      note: this.note
+    }).present();
     console.log('OPENADDIMAGE WAS CLICKED');
   }
 

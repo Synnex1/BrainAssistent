@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ViewController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Note } from '../../model/note.model';
+import { NavParams } from 'ionic-angular';
 
 
 @Component({
@@ -8,7 +10,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
   templateUrl: 'image.html',
 })
 export class ImagePage {
-  photos: any = [];
+  note: Note;
   base64Image: string = '';
   options: CameraOptions = {
     quality: 50,
@@ -17,11 +19,8 @@ export class ImagePage {
     mediaType: this.camera.MediaType.PICTURE
   }
 
-  constructor(public viewCtrl: ViewController, public camera: Camera) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ImagePage');
+  constructor(public viewCtrl: ViewController, public camera: Camera, public navParams: NavParams) {
+    this.note = this.navParams.get('note');
   }
 
   dismissImage(){
@@ -41,7 +40,7 @@ export class ImagePage {
   getPicture(options: CameraOptions) {
     this.camera.getPicture(options).then((imageData) => {
       this.base64Image = 'data:image/jpeg;base64,' + imageData;
-      this.photos.push(this.base64Image);
+      this.note.pictures.push(this.base64Image);
     }, (err) => {
       console.log('Photo wurde net genommen');
     });
