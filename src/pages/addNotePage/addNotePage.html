@@ -22,6 +22,7 @@
                 <ion-option value="reminder">Reminder</ion-option>
                 <ion-option value="picture">Picture</ion-option>
                 <ion-option value="place">Place</ion-option>
+                <ion-option value="important">Important</ion-option>
             </ion-select>
         </ion-item>
 
@@ -35,23 +36,23 @@
 
 <ion-footer>
     <ion-toolbar>
-        <button ion-button icon-only clear button large color="dark" (click)="onOpenAddMyLocation()">
+        <button ion-button icon-only clear button color="dark" (click)="onOpenAddMyLocation()">
             <ion-icon name="ios-navigate"></ion-icon>
         </button>
 
-        <button ion-button icon-only clear button large color="dark" (click)="onOpenAddReminder()">
+        <button ion-button icon-only clear button color="dark" (click)="onOpenAddReminder()">
             <ion-icon name="ios-alarm"></ion-icon>
         </button>
 
-        <button ion-button icon-only clear button large color="dark" (click)="onOpenAddImage()">
+        <button ion-button icon-only clear button color="dark" (click)="onOpenAddImage()">
             <ion-icon name="md-image"></ion-icon>
         </button>
 
-        <button ion-button icon-only clear button large color="dark" (click)="onOpenAddColor()">
+        <button ion-button icon-only clear button color="dark" (click)="onOpenAddColor()">
             <ion-icon name="md-color-fill"></ion-icon>
         </button>
 
-        <button ion-button icon-only clear button large color="dark" (click)="onOpenAddVoice()">
+        <button ion-button icon-only clear button color="dark" (click)="onOpenAddVoice()">
             <ion-icon name="ios-mic"></ion-icon>
         </button>
 
