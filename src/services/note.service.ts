@@ -16,8 +16,9 @@ constructor(private storage: Storage) {
 
     //not working yet ------------------------------------------------>
      removeNote(note: Note) {
-        this.notes.splice(this.notes.indexOf(note), 1);
-        this.storage.set('notes', this.notes);
+        //this.notes.splice(this.notes.indexOf(note), 1);
+        //this.storage.set('notes', this.notes);
+        //this.storage.remove(key);         //key needed for removing note!!!
     }
 
     getNotes() {
