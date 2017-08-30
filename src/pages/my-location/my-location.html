@@ -8,8 +8,11 @@
 
 
 <ion-content padding>
-    <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="16">
-    </sebm-google-map>
+
+
+    <agm-map [latitude]="lat" [longitude]="lng" [scrollwheel]="true" [zoom]="17">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
 
     <button ion-button block color="dark" (click)="saveLocation()">Save This Location</button>
 

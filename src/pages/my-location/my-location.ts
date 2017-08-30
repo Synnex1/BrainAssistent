@@ -8,8 +8,8 @@ import { Geolocation } from '@ionic-native/geolocation';
   templateUrl: 'my-location.html',
 })
 export class MyLocationPage {
-  lat: number = 0;
-  lng: number = 0;
+  lat: number = 52.2716;
+  lng: number = 8.0443;
 
   constructor(private viewCtrl: ViewController,
               private navParams: NavParams,
@@ -25,6 +25,7 @@ export class MyLocationPage {
   public saveLocation(){
     //return Location coords ------------------------------------------------------->
     //exit Modal View
+
   }
 
   public onLocateMe(){

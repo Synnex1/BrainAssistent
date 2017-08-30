@@ -15,7 +15,7 @@ import { ImagePage } from '../pages/image/image';
 import { NoteService } from '../services/note.service';
 import { IonicStorageModule } from '@ionic/storage';
 import { Geolocation } from '@ionic-native/geolocation';
-import { AgmCoreModule } from 'angular2-google-maps/core';
+import { AgmCoreModule } from '@agm/core';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { Camera } from '@ionic-native/camera';
 
@@ -36,9 +36,9 @@ import { Camera } from '@ionic-native/camera';
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBefatqdyh0dzJbRpnLhGEwP0l5_rV_MD0'
+      apiKey: 'AIzaSyBefatqdyh0dzJbRpnLhGEwP0l5_rV_MD0',
+      libraries: ["places"]
     })
-
   ],
   bootstrap: [IonicApp],
   entryComponents: [
