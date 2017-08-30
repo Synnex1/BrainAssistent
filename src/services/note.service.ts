@@ -7,6 +7,9 @@ export class NoteService {
 private notes : Note[] = [];
 
 constructor(private storage: Storage) {
+    this.storage.get("notes").then((note) => {
+        this.notes = note == null ? [] : note;
+    });
 }
 
     addNote(note: Note) {
