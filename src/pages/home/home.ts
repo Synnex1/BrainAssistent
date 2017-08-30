@@ -15,14 +15,13 @@ export class HomePage {
   searchTerm: string = '';
 
   constructor(public navCtrl: NavController, private noteService: NoteService) {
-
-  }
-
-  ionViewWillEnter() {
     this.noteService.getNotes()
     .then(
       (notes) => this.notes = notes
     );
+  }
+
+  ionViewWillEnter() {
     this.setFilteredNotes();
   }
 
