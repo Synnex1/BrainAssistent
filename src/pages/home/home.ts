@@ -15,6 +15,9 @@ export class HomePage {
   searchTerm: string = '';
 
   constructor(public navCtrl: NavController, private noteService: NoteService) {
+    noteService.loadNotes().then((notes) => {
+      this.notes = notes;
+    })
   }
 
   ionViewWillEnter() {

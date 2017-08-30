@@ -7,7 +7,6 @@ export class NoteService {
 private notes : Note[] = [];
 
 constructor(private storage: Storage) {
-    this.getNotes();
 }
 
     addNote(note: Note) {
@@ -22,16 +21,16 @@ constructor(private storage: Storage) {
         //this.storage.remove(key);         //key needed for removing note!!!
     }
 
+    loadNotes() {
+        return this.storage.get('notes').then(
+            (notes) => {
+                this.notes = notes == null ? [] : notes;
+                return this.notes;
+            });
+    }
+
     getNotes() {
-        return this.storage.get('notes')
-            .then(
-                (notes) => {
-                    // if notes is empty -> return empty array , otherwise return notes array
-                    this.notes = notes == null ? [] : notes;
-                    // returns a copy of the array in the storage
-                    return this.notes;
-                }
-            );
+        return this.notes;
     }
 
     editNote(note: Note) {
