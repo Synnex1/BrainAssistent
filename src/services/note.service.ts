@@ -7,9 +7,7 @@ export class NoteService {
 private notes : Note[] = [];
 
 constructor(private storage: Storage) {
-    this.storage.get("notes").then((note) => {
-        this.notes = note == null ? [] : note;
-    });
+    this.getNotes();
 }
 
     addNote(note: Note) {
@@ -31,7 +29,7 @@ constructor(private storage: Storage) {
                     // if notes is empty -> return empty array , otherwise return notes array
                     this.notes = notes == null ? [] : notes;
                     // returns a copy of the array in the storage
-                    return this.notes.slice();
+                    return this.notes;
                 }
             );
     }
