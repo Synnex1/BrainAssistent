@@ -11,11 +11,12 @@
 </ion-header>
 
 <ion-content>
-    <form padding (ngSubmit)="addNewNote()">
+    <form padding>
         <!--<ion-input type="text" placeholder="Type" required [(ngModel)]="note.type" name="type"></ion-input>-->
         <ion-input type="text" placeholder="Title" required [(ngModel)]="note.title" name="title" style="font-weight: bold"></ion-input>
         <ion-textarea type="text" placeholder="Description" [(ngModel)]="note.description" name="description"></ion-textarea>
 
+        <!--Type einstellen-->
         <ion-item>
             <ion-label>Type: </ion-label>
             <ion-select [(ngModel)]="note.type" name="type">
@@ -26,11 +27,22 @@
             </ion-select>
         </ion-item>
 
+        <!-- Reminder will be set if not null-->
         <ion-item>
-            <ion-label type="date"></ion-label>
+            <ion-label type="date">Hier kommt der Reminder hin</ion-label>
         </ion-item>
 
-        <button ion-button block color="dark" type="submit">Save</button>
+        <!-- Location will be set if not null-->
+        <ion-item *ngIf="this.note.location != null">
+            <ion-label>Location was fetched
+                <button ion-button icon-only clear button color="dark" end (click)="deleteLocation()">
+                    <ion-icon name="md-trash"></ion-icon>
+                </button>
+            </ion-label>
+        </ion-item>
+
+        <!-- Save Button will Save all Attributes of the Note in the Object-->
+        <button ion-button block color="dark" (click)="addNewNote()">Save</button>
     </form>
 </ion-content>
 

@@ -33,11 +33,27 @@ export class AddNotePage {
   public ionViewWillEnter() {
     //update List with the set items ----------------------------------------------->
     //e.g. unhide hidden items
+    console.log(this.note);
   }
 
   public onOpenAddMyLocation(): void{
-    this.modalCtrl.create(MyLocationPage, {location: this.note.location}).present();
+    let myLocationModal = this.modalCtrl.create(MyLocationPage);
+    myLocationModal.present();
     console.log('OPENADDMYLOCATION WAS CLICKED');
+
+    myLocationModal.onDidDismiss(data =>{
+      if(data != null){
+        var setLocation = {lat:0, lng: 0, check: false};
+        setLocation.lat = data.lat;
+        setLocation.lng = data.lng;
+        setLocation.check = data.check;
+        this.note.location = setLocation;
+      }
+    })
+  }
+
+  public deleteLocation(): void{
+
   }
 
   public onOpenAddReminder(): void{
