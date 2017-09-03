@@ -13,6 +13,7 @@ import { Note } from '../../model/note.model';
 export class HomePage {
   notes: Note[] = [];
   searchTerm: string = '';
+  type: string = '';
 
   constructor(public navCtrl: NavController, private noteService: NoteService) {
     noteService.loadNotes().then((notes) => {
