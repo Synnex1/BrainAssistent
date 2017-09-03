@@ -5,6 +5,7 @@ import { DetailPage } from '../detail/detail';
 import { AddNotePage } from '../addNotePage/addNotePage';
 import { NoteService } from '../../services/note.service';
 import { Note } from '../../model/note.model';
+import { ActionSheetController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -15,7 +16,7 @@ export class HomePage {
   searchTerm: string = '';
   type: string = '';
 
-  constructor(public navCtrl: NavController, private noteService: NoteService) {
+  constructor(public navCtrl: NavController, private noteService: NoteService, public actionSheetCtrl: ActionSheetController) {
     noteService.loadNotes().then((notes) => {
       this.notes = notes;
     })
@@ -36,7 +37,32 @@ export class HomePage {
   }
 
   setFilteredNotes() {
-    this.notes = this.noteService.filterNotes(this.searchTerm);
+    this.notes = this.noteService.filterNotes(this.searchTerm, this.type);
+  }
+
+  filterNotesByType() {
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Filter',
+      buttons: [
+        {
+          text: 'Reminder',
+          handler: () => {
+            this.type = 'Reminder'
+            this.setFilteredNotes();
+          }
+        },
+        {
+          text: 'Zurücksetzen',
+          role: 'cancel',
+          handler: () => {
+            this.type = '';
+            this.setFilteredNotes();
+          }
+        }
+      ]
+    });
+
+    actionSheet.present();
   }
 
 }

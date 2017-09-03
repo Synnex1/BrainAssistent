@@ -42,9 +42,9 @@ constructor(private storage: Storage) {
         
     }
 
-    filterNotes(searchTerm) {
+    filterNotes(searchTerm, type) {
         return this.notes.filter((note) => {
-            return note.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 || note.type.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+            return note.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 && note.type.toLowerCase().indexOf(type.toLowerCase()) > -1;
         });
     }
 }
