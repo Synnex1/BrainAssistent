@@ -8,17 +8,22 @@ private notes : Note[] = [];
 
 constructor(private storage: Storage) {
 }
+    saveNotes() {
+        this.storage.set("notes", this.notes);
+    }
 
     addNote(note: Note) {
         this.notes.push(note);
-        this.storage.set('notes', this.notes);
+        this.saveNotes();
     }
 
     //not working yet ------------------------------------------------>
      removeNote(note: Note) {
-        //this.notes.splice(this.notes.indexOf(note), 1);
-        //this.storage.set('notes', this.notes);
-        //this.storage.remove(key);         //key needed for removing note!!!
+         let index: number = this.notes.indexOf(note);
+         if(index !== -1) {
+             this.notes.splice(index, 1);
+         }
+         this.saveNotes();
     }
 
     loadNotes() {
