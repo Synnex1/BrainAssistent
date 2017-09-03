@@ -13,7 +13,7 @@ constructor(private storage: Storage) {
     }
 
     addNote(note: Note) {
-        this.notes.push(note);
+        this.notes.unshift(note);
         this.saveNotes();
     }
 
