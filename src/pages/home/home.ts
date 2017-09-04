@@ -52,6 +52,27 @@ export class HomePage {
           }
         },
         {
+          text: 'Picture',
+          handler: () => {
+            this.type = 'Picture'
+            this.setFilteredNotes();  
+          }
+        },
+        {
+          text: 'Place',
+          handler:() => {
+            this.type = 'Place'
+            this.setFilteredNotes();
+          }
+        },
+        {
+          text: 'Important',
+          handler: () => {
+            this.type = 'Important'
+            this.setFilteredNotes();
+          }
+        },
+        {
           text: 'Zurücksetzen',
           role: 'cancel',
           handler: () => {
