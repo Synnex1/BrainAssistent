@@ -4,10 +4,11 @@ import { Note } from '../model/note.model';
 
 @Injectable()
 export class NoteService {
-private notes : Note[] = [];
+    
+    private notes : Note[] = [];
 
-constructor(private storage: Storage) {
-}
+    constructor(private storage: Storage) {
+    }
     saveNotes() {
         this.storage.set("notes", this.notes);
     }
@@ -17,8 +18,8 @@ constructor(private storage: Storage) {
         this.saveNotes();
     }
 
-    //not working yet ------------------------------------------------>
-     removeNote(note: Note) {
+    
+    removeNote(note: Note) {
          let index: number = this.notes.indexOf(note);
          if(index !== -1) {
              this.notes.splice(index, 1);
