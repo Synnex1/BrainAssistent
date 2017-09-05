@@ -7,10 +7,19 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
   templateUrl: 'reminder.html',
 })
 export class ReminderPage {
-  myDate: String = new Date().toISOString();
+  private myDate: string;
   myNotification: string;
 
   constructor(public viewCtrl: ViewController, public platform: Platform, public alertCtrl: AlertController, private localNotifications: LocalNotifications) {
+    //Setting up the dateTime-Picker 
+    let now = new Date();
+    now.setHours(now.getHours() -(now.getTimezoneOffset() / 60));
+    this.myDate = now.toISOString();
+    
+    
+    
+    
+    
     this.platform.ready().then((rdy => {
       this.localNotifications.on('click', (notification, state) => {
         let json = JSON.parse(notification.data);
