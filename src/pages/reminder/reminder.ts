@@ -32,11 +32,16 @@ export class ReminderPage {
 
   scheduleNotification() {
     this.localNotifications.schedule({
+      id: 1,
       title: 'Attention',
       text: 'Notification',
-      at: new Date(this.myDate),
-      data: { mydata: 'My secret Message'}
+      /*sound: isAndroid? 'file://sound.mp3': 'file://beep.caf',*/
+      at: this.myDate
     });
+  }
+
+  showMyDate() {
+    console.log(this.myDate);
   }
 
   ionViewDidLoad() {
