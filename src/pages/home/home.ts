@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Http } from '@angular/http';
 import { DetailPage } from '../detail/detail';
 import { AddNotePage } from '../addNotePage/addNotePage';
 import { NoteService } from '../../services/note.service';

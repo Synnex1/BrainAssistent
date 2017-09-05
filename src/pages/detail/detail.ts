@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { HomePage } from '../home/home';
 import { Note } from '../../model/note.model';
 import { NoteService } from '../../services/note.service';
 

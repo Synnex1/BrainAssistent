@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { ViewController, NavParams, ToastController } from 'ionic-angular';
+import { ViewController, ToastController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
-import { Note } from '../../model/note.model';
 
 @Component({
   selector: 'page-my-location',
@@ -12,7 +11,6 @@ export class MyLocationPage {
   lng: number = 8.0443;
 
   constructor(private viewCtrl: ViewController,
-              private navParams: NavParams,
               private geolocation: Geolocation,
               private toastCtrl: ToastController) {
 

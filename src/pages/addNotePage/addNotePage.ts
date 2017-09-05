@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { HomePage } from '../home/home';
 import { MyLocationPage } from '../my-location/my-location';
 import { ReminderPage } from '../reminder/reminder';
 import { ImagePage } from '../image/image';
 
 import { NoteService } from '../../services/note.service';
 import { NavController, ModalController } from 'ionic-angular';
-import { Geolocation } from '@ionic-native/geolocation';
 import { Note } from '../../model/note.model';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 
@@ -19,7 +17,6 @@ export class AddNotePage {
 
   constructor(private noteService: NoteService,
               private navCtrl: NavController,
-              private geolocation: Geolocation,
               private modalCtrl: ModalController,
               private locNotific: LocalNotifications) {
   }
@@ -57,8 +54,16 @@ export class AddNotePage {
   }
 
   public onOpenAddReminder(): void{
-    this.modalCtrl.create(ReminderPage).present();
+    let reminderModal = this.modalCtrl.create(ReminderPage);
+    reminderModal.present();
     console.log('OPENADDREMINDER WAS CLICKED');
+
+    reminderModal.onDidDismiss(data =>{
+      if(data != null) {
+        var dateString = data;
+        this.note.reminder = dateString;
+      }
+    })
   }
 
   public onOpenAddImage(): void{

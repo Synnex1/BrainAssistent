@@ -4,7 +4,7 @@ export class Note {
 	description: string = "";
 	location: {lat: number, lng: number, check: any} = null;
 	pictures: any[]= [];
-	reminder: any[] = [];
+	reminder: string = "";
 	
 	constructor() {
 	}

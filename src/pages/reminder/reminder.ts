@@ -16,10 +16,7 @@ export class ReminderPage {
     now.setHours(now.getHours() -(now.getTimezoneOffset() / 60));
     this.myDate = now.toISOString();
     
-    
-    
-    
-    
+    /*
     this.platform.ready().then((rdy => {
       this.localNotifications.on('click', (notification, state) => {
         let json = JSON.parse(notification.data);
@@ -30,16 +27,14 @@ export class ReminderPage {
         });
         alert.present();
       })
-    }))
+    }))*/
   }
-
-
 
   scheduleNotification() {
     this.localNotifications.schedule({
       title: 'Attention',
       text: 'Notification',
-      at: new Date(new Date().getTime() + 5 * 1000),
+      at: new Date(this.myDate),
       data: { mydata: 'My secret Message'}
     });
   }
@@ -52,6 +47,7 @@ export class ReminderPage {
   setReminder(myDate, myNotification){
     //return data to addNotePage ------------------------------------------------->
     //then
+    
     this.viewCtrl.dismiss();
   }
   
