@@ -4,7 +4,6 @@ import { Note } from '../../model/note.model';
 import { NoteService } from '../../services/note.service';
 
 
-@IonicPage()
 @Component({
   selector: 'page-detail',
   templateUrl: 'detail.html',

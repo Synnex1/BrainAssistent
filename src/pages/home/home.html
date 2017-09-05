@@ -15,15 +15,12 @@
     <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredNotes()">  </ion-searchbar>
 
     <ion-list>
-        <ion-item *ngFor="let note of notes" (click)="viewDetails(note)">
-            <ion-thumbnail item-start>
-                <img src="../../assets/icon/favicon.ico">
-            </ion-thumbnail>
-            <h2>{{note.title}}</h2>
-            <p>{{note.description}}</p>
-
-            <button ion-button clear item-end color="secondary">{{notes.text}}</button>
-        </ion-item>
+        <ion-card *ngFor="let note of notes" (click)="viewDetails(note)">
+            <ion-item>
+                <h2>{{note.title}}</h2>
+                <p>{{note.description}}</p>
+            </ion-item>
+        </ion-card>
     </ion-list>
 
 
