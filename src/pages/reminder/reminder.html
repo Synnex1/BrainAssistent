@@ -14,7 +14,7 @@
     </ion-item>
 
     <ion-item>
-        <ion-textarea placeholder="Notification" [(ngModel)]="myNotification"></ion-textarea>
+        <button ion button full (click)="scheduleNotification()"></button>
     </ion-item>
 
     <button ion-button block color="dark" (click)="setReminder()">Set Reminder</button>
