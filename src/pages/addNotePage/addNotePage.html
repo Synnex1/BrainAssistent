@@ -12,8 +12,7 @@
 
 <ion-content>
     <form padding>
-        <!--<ion-input type="text" placeholder="Type" required [(ngModel)]="note.type" name="type"></ion-input>-->
-        <ion-input type="text" placeholder="Title" required [(ngModel)]="note.title" name="title" style="font-weight: bold"></ion-input>
+        <ion-input type="text" placeholder="Title" [(ngModel)]="note.title" name="title" style="font-weight: bold"></ion-input>
         <ion-textarea type="text" placeholder="Description" [(ngModel)]="note.description" name="description"></ion-textarea>
 
         <!--Type einstellen-->
@@ -28,8 +27,8 @@
         </ion-item>
 
         <!-- Reminder will be set if not null-->
-        <ion-item>
-            <ion-label type="date">Hier kommt der Reminder hin</ion-label>
+        <ion-item *ngIf="this.note.reminder">
+            <ion-label type="date">Reminder Time was set</ion-label>
         </ion-item>
 
         <!-- Location will be set if not null-->
@@ -64,9 +63,6 @@
             <ion-icon name="md-color-fill"></ion-icon>
         </button>
 
-        <button ion-button icon-only clear button color="dark" (click)="onOpenAddVoice()">
-            <ion-icon name="ios-mic"></ion-icon>
-        </button>
 
     </ion-toolbar>
 </ion-footer>

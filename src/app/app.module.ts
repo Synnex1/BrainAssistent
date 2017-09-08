@@ -11,7 +11,6 @@ import { AddNotePage } from '../pages/addNotePage/addNotePage';
 import { MyLocationPage } from '../pages/my-location/my-location';
 import { ReminderPage } from '../pages/reminder/reminder';
 import { ImagePage } from '../pages/image/image';
-import { VoicePage } from '../pages/voice/voice';
 
 import { NoteService } from '../services/note.service';
 import { IonicStorageModule } from '@ionic/storage';
@@ -19,7 +18,6 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { AgmCoreModule } from '@agm/core';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { Camera } from '@ionic-native/camera';
-import { Media, MediaObject } from '@ionic-native/media';
 import { ToastController } from 'ionic-angular';
 
 
@@ -31,9 +29,7 @@ import { ToastController } from 'ionic-angular';
     AddNotePage,
     MyLocationPage,
     ReminderPage,
-    ImagePage,
-    VoicePage
-
+    ImagePage
   ],
   imports: [
     BrowserModule,
@@ -52,8 +48,7 @@ import { ToastController } from 'ionic-angular';
     AddNotePage,
     MyLocationPage,
     ReminderPage,
-    ImagePage,
-    VoicePage
+    ImagePage
   ],
   providers: [
     StatusBar,
@@ -63,7 +58,6 @@ import { ToastController } from 'ionic-angular';
     Geolocation,
     LocalNotifications,
     Camera,
-    Media,
     ToastController
   ]
 })

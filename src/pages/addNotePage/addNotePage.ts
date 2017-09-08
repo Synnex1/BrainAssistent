@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { MyLocationPage } from '../my-location/my-location';
 import { ReminderPage } from '../reminder/reminder';
 import { ImagePage } from '../image/image';
-import { VoicePage } from '../voice/voice';
 
 import { NoteService } from '../../services/note.service';
 import { NavController, ModalController } from 'ionic-angular';
 import { Note } from '../../model/note.model';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { ToastController } from 'ionic-angular';
 
 @Component({
   selector: 'addNotePage',
@@ -19,13 +19,24 @@ export class AddNotePage {
   constructor(private noteService: NoteService,
               private navCtrl: NavController,
               private modalCtrl: ModalController,
-              private locNotific: LocalNotifications) {
+              private locNotific: LocalNotifications,
+              private toastCtrl: ToastController) {
   }
 
   public addNewNote() {
-    this.noteService.addNote(this.note);
-    console.log('new note was added to the list');
-    this.navCtrl.pop();    
+    if(this.note.title == ""){
+      let toast = this.toastCtrl.create({
+        message: 'Title has to be set!',
+        duration: 3000,
+        position: 'top'
+      });
+      toast.present();
+    } else{
+      this.noteService.addNote(this.note);
+      console.log('new note was added to the list');
+      this.navCtrl.pop();   
+    }
+     
   }
 
   public ionViewWillEnter() {
@@ -79,10 +90,5 @@ export class AddNotePage {
     console.log('OPENADDCOLOR WAS CLICKED');
   }
 
-  public onOpenAddVoice(): void{
-    // Pop-up with button to record your voice --------------------------------------->
-    this.modalCtrl.create(VoicePage).present();
-    console.log('OPENADDVOICE WAS CLICKED');
-  }
   
 }
