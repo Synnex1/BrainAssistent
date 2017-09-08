@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MyLocationPage } from '../my-location/my-location';
 import { ReminderPage } from '../reminder/reminder';
 import { ImagePage } from '../image/image';
+import { VoicePage } from '../voice/voice';
 
 import { NoteService } from '../../services/note.service';
 import { NavController, ModalController } from 'ionic-angular';
@@ -80,6 +81,7 @@ export class AddNotePage {
 
   public onOpenAddVoice(): void{
     // Pop-up with button to record your voice --------------------------------------->
+    this.modalCtrl.create(VoicePage).present();
     console.log('OPENADDVOICE WAS CLICKED');
   }
   
