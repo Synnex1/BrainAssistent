@@ -16,11 +16,16 @@
 
     <ion-list>
         <ion-card *ngFor="let note of notes" (click)="viewDetails(note)">
-            <ion-thumbnail item-left *ngIf="note.type != null" >
-                <ion-img src="../../assets/img/place.png"></ion-img>
-            </ion-thumbnail>
+            <ion-item>
+                <ion-thumbnail item-right *ngIf="note.type" >
+                    <img *ngIf="note.type == 'reminder'" src="assets/img/reminder.png" />
+                    <img *ngIf="note.type == 'picture'" src="assets/img/picture.png" />
+                    <img *ngIf="note.type == 'place'" src="assets/img/place.png" />
+                    <img *ngIf="note.type == 'important'" src="assets/img/important.png" />
+                </ion-thumbnail>
                 <h2>{{note.title}}</h2>
                 <p>{{note.description}}</p>
+            </ion-item>            
         </ion-card>
     </ion-list>
 
