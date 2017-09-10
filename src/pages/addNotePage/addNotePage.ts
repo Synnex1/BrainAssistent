@@ -124,6 +124,12 @@ export class AddNotePage {
           }
         },
         {
+          text: 'Pink',
+          handler: () => {
+            this.note.color = 'pink';
+          }
+        },
+        {
           text: 'Cancel',
           role: 'cancel',
           handler: () => {
