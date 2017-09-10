@@ -8,6 +8,7 @@ import { NavController, ModalController } from 'ionic-angular';
 import { Note } from '../../model/note.model';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { ToastController } from 'ionic-angular';
+import { ActionSheetController } from 'ionic-angular';
 
 @Component({
   selector: 'addNotePage',
@@ -20,7 +21,8 @@ export class AddNotePage {
               private navCtrl: NavController,
               private modalCtrl: ModalController,
               private locNotific: LocalNotifications,
-              private toastCtrl: ToastController) {
+              private toastCtrl: ToastController,
+              private actionSheetCtrl: ActionSheetController) {
   }
 
   public addNewNote() {
@@ -88,6 +90,49 @@ export class AddNotePage {
   public onOpenAddColor(): void{
     // Pop-up with several colors to select ------------------------------------------>
     console.log('OPENADDCOLOR WAS CLICKED');
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Set Color',
+      buttons: [
+        {
+          text: 'Red',
+          handler: () => {
+            this.note.color = 'red';
+          }
+        },
+        {
+          text: 'Blue',
+          handler: () => {
+            this.note.color = 'blue';
+          }
+        },
+        {
+          text: 'Yellow',
+          handler: () => {
+            this.note.color = 'yellow';
+          }
+        },
+        {
+          text: 'Green',
+          handler: () => {
+            this.note.color = 'green';
+          }
+        },
+        {
+          text: 'Brown',
+          handler: () => {
+            this.note.color = 'brown';
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            this.note.color = '';
+          }
+        }
+      ]
+    });
+  actionSheet.present();
   }
 
   

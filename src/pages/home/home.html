@@ -15,8 +15,8 @@
     <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredNotes()">  </ion-searchbar>
 
     <ion-list>
-        <ion-card *ngFor="let note of notes" (click)="viewDetails(note)">
-            <ion-item>
+        <ion-card *ngFor="let note of notes" (click)="viewDetails(note)" >
+            <ion-item [ngStyle]="{'background-color': note.color}">
                 <ion-thumbnail item-right *ngIf="note.type" >
                     <img *ngIf="note.type == 'reminder'" src="assets/img/reminder.png" />
                     <img *ngIf="note.type == 'picture'" src="assets/img/picture.png" />

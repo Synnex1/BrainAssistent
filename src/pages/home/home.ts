@@ -82,7 +82,7 @@ export class HomePage {
       ]
     });
 
-    actionSheet.present();
+  actionSheet.present();
   }
 
 }

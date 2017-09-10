@@ -5,6 +5,7 @@ export class Note {
 	location: {lat: number, lng: number, check: any} = null;
 	pictures: any[]= [];
 	reminder: string = "";
+	color: string = "";
 	
 	constructor() {
 	}
