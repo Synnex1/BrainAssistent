@@ -22,6 +22,8 @@ export class HomePage {
   }
 
   ionViewWillEnter() {
+    console.log('home Note is following');
+    console.log(this.notes);    
     this.setFilteredNotes();
   }
 
