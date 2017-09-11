@@ -8,6 +8,7 @@ import { NavController, ModalController } from 'ionic-angular';
 import { Note } from '../../model/note.model';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { ToastController } from 'ionic-angular';
+import { ActionSheetController } from 'ionic-angular';
 
 @Component({
   selector: 'addNotePage',
@@ -20,7 +21,8 @@ export class AddNotePage {
               private navCtrl: NavController,
               private modalCtrl: ModalController,
               private locNotific: LocalNotifications,
-              private toastCtrl: ToastController) {
+              private toastCtrl: ToastController,
+              private actionSheetCtrl: ActionSheetController) {
   }
 
   public addNewNote() {
@@ -34,6 +36,7 @@ export class AddNotePage {
     } else{
       this.noteService.addNote(this.note);
       console.log('new note was added to the list');
+      console.log(this.note);
       this.navCtrl.pop();   
     }
      
@@ -52,17 +55,18 @@ export class AddNotePage {
 
     myLocationModal.onDidDismiss(data =>{
       if(data != null){
-        var setLocation = {lat:0, lng: 0, check: false};
+        var setLocation = {lat:0, lng: 0};
         setLocation.lat = data.lat;
         setLocation.lng = data.lng;
-        setLocation.check = data.check;
         this.note.location = setLocation;
+      } else{
+        this.note.location = null;
       }
     })
   }
 
   public deleteLocation(): void{
-
+    this.note.location = null;
   }
 
   public onOpenAddReminder(): void{
@@ -88,6 +92,55 @@ export class AddNotePage {
   public onOpenAddColor(): void{
     // Pop-up with several colors to select ------------------------------------------>
     console.log('OPENADDCOLOR WAS CLICKED');
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Set Color',
+      buttons: [
+        {
+          text: 'Red',
+          handler: () => {
+            this.note.color = '#f95e5e';
+          }
+        },
+        {
+          text: 'Blue',
+          handler: () => {
+            this.note.color = '#4286f4';
+          }
+        },
+        {
+          text: 'Yellow',
+          handler: () => {
+            this.note.color = '#fdff89';
+          }
+        },
+        {
+          text: 'Green',
+          handler: () => {
+            this.note.color = '#56ef81';
+          }
+        },
+        {
+          text: 'Brown',
+          handler: () => {
+            this.note.color = '#ed9e21';
+          }
+        },
+        {
+          text: 'Pink',
+          handler: () => {
+            this.note.color = '#f794eb';
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            this.note.color = '';
+          }
+        }
+      ]
+    });
+  actionSheet.present();
   }
 
   
