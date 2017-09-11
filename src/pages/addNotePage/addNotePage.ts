@@ -59,12 +59,14 @@ export class AddNotePage {
         setLocation.lng = data.lng;
         setLocation.check = data.check;
         this.note.location = setLocation;
+      } else{
+        this.note.location = null;
       }
     })
   }
 
   public deleteLocation(): void{
-
+    this.note.location = null;
   }
 
   public onOpenAddReminder(): void{

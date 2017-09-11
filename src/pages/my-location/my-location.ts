@@ -17,7 +17,7 @@ export class MyLocationPage {
   }
 
   public dismissLocation(){
-    this.viewCtrl.dismiss();  
+    this.viewCtrl.dismiss(null);  
   }
 
   public saveLocation(){
@@ -39,7 +39,6 @@ export class MyLocationPage {
           this.lng = location.coords.longitude;
         }
       )
-
       .catch(
         (Error) => console.log('Location could not be found!')
       );
