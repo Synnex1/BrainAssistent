@@ -30,7 +30,7 @@
         <ion-item *ngIf="this.note.location != null" [ngStyle]="{'background-color': note.color}">
             <ion-label>Location was fetched
                 <button ion-button icon-only clear button color="dark" (click)="deleteLocation()">
-                    <ion-icon name="md-trash"></ion-icon>
+                    <ion-icon name="md-trash" class="red"></ion-icon>
                 </button>
             </ion-label>
                 
@@ -42,23 +42,21 @@
 </ion-content>
 <!-- Footer with all additional attributes which can be set -->
 <ion-footer>
-    <ion-toolbar>
-        <button ion-button icon-only clear button color="dark" (click)="onOpenAddMyLocation()">
+    <ion-toolbar style="text-align: center">
+        <button ion-button icon-only clear button color="dark" (click)="onOpenAddMyLocation()" class="btn_margin">
             <ion-icon name="ios-navigate"></ion-icon>
         </button>
 
-        <button ion-button icon-only clear button color="dark" (click)="onOpenAddReminder()">
+        <button ion-button icon-only clear button color="dark" (click)="onOpenAddReminder()" class="btn_margin">
             <ion-icon name="ios-alarm"></ion-icon>
         </button>
 
-        <button ion-button icon-only clear button color="dark" (click)="onOpenAddImage()">
+        <button ion-button icon-only clear button color="dark" (click)="onOpenAddImage()" class="btn_margin">
             <ion-icon name="md-image"></ion-icon>
         </button>
 
-        <button ion-button icon-only clear button color="dark" (click)="onOpenAddColor()">
+        <button ion-button icon-only clear button color="dark" (click)="onOpenAddColor()" class="btn_margin">
             <ion-icon name="md-color-fill"></ion-icon>
         </button>
-
-
     </ion-toolbar>
 </ion-footer>
