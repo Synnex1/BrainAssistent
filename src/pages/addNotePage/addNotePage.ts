@@ -96,37 +96,37 @@ export class AddNotePage {
         {
           text: 'Red',
           handler: () => {
-            this.note.color = 'red';
+            this.note.color = '#f95e5e';
           }
         },
         {
           text: 'Blue',
           handler: () => {
-            this.note.color = 'blue';
+            this.note.color = '#4286f4';
           }
         },
         {
           text: 'Yellow',
           handler: () => {
-            this.note.color = 'yellow';
+            this.note.color = '#fdff89';
           }
         },
         {
           text: 'Green',
           handler: () => {
-            this.note.color = 'green';
+            this.note.color = '#56ef81';
           }
         },
         {
           text: 'Brown',
           handler: () => {
-            this.note.color = 'brown';
+            this.note.color = '#ed9e21';
           }
         },
         {
           text: 'Pink',
           handler: () => {
-            this.note.color = 'pink';
+            this.note.color = '#f794eb';
           }
         },
         {

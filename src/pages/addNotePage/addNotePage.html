@@ -10,13 +10,13 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content [ngStyle]="{'background-color': note.color}">
     <form padding>
         <ion-input type="text" placeholder="Title" [(ngModel)]="note.title" name="title" style="font-weight: bold"></ion-input>
         <ion-textarea type="text" placeholder="Description" [(ngModel)]="note.description" name="description"></ion-textarea>
 
         <!--Type einstellen-->
-        <ion-item>
+        <ion-item [ngStyle]="{'background-color': note.color}">
             <ion-label>Type: </ion-label>
             <ion-select [(ngModel)]="note.type" name="type">
                 <ion-option value="reminder">Reminder</ion-option>
@@ -27,12 +27,12 @@
         </ion-item>
 
         <!-- Reminder will be set if not null-->
-        <ion-item *ngIf="this.note.reminder">
+        <ion-item *ngIf="this.note.reminder" [ngStyle]="{'background-color': note.color}">
             <ion-label type="date">Reminder Time was set</ion-label>
         </ion-item>
 
         <!-- Location will be set if not null-->
-        <ion-item *ngIf="this.note.location != null">
+        <ion-item *ngIf="this.note.location != null" [ngStyle]="{'background-color': note.color}">
             <ion-label>Location was fetched
                 <button ion-button icon-only clear button color="dark" end (click)="deleteLocation()">
                     <ion-icon name="md-trash"></ion-icon>
