@@ -120,7 +120,7 @@ export class AddNotePage {
           }
         },
         {
-          text: 'Brown',
+          text: 'Orange',
           handler: () => {
             this.note.color = '#ed9e21';
           }
