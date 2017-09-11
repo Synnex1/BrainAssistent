@@ -37,7 +37,7 @@ export class ReminderPage {
       title: 'Attention',
       text: 'Notification',
       sound: 'file://assets/sounds/notification.mp3',
-      at: this.notifyDate
+      at: new Date(Date.parse(this.displayDate))
     });
   }
 
@@ -45,9 +45,6 @@ export class ReminderPage {
     console.log('ionViewDidLoad ReminderPage');
   }
 
-  onChangeDate(date) {
-    this.notifyDate = new Date(date.year.value, date.month.value, date.day.value, date.hour.value, date.minute.value);
-  }
   
   dismissReminder(){
     this.viewCtrl.dismiss();
