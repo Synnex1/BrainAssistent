@@ -23,10 +23,9 @@ export class MyLocationPage {
   public saveLocation(){
     //return Location coords ------------------------------------------------------->
     //exit Modal View
-    var setLocation = {lat: 0, lng: 0, check: false};
+    var setLocation = {lat: 0, lng: 0};
     setLocation.lat = this.lat;
-    setLocation.lng = this.lat;
-    setLocation.check = true;
+    setLocation.lng = this.lng;
     this.viewCtrl.dismiss(setLocation);
   }
 

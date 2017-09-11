@@ -1,12 +1,6 @@
 <ion-header>
     <ion-navbar color="primary">
         <ion-title>New Note</ion-title>
-
-        <!-- Does not work with the submit
-        <ion-buttons end>
-            <button ion-button type="submit">Save</button>
-        </ion-buttons>
-        -->
     </ion-navbar>
 </ion-header>
 
@@ -15,7 +9,7 @@
         <ion-input type="text" placeholder="Title" [(ngModel)]="note.title" name="title" style="font-weight: bold"></ion-input>
         <ion-textarea type="text" placeholder="Description" [(ngModel)]="note.description" name="description"></ion-textarea>
 
-        <!--Type einstellen-->
+        <!--Setting type-->
         <ion-item [ngStyle]="{'background-color': note.color}">
             <ion-label>Type: </ion-label>
             <ion-select [(ngModel)]="note.type" name="type">
@@ -35,17 +29,18 @@
         <!-- Location will be set if not null-->
         <ion-item *ngIf="this.note.location != null" [ngStyle]="{'background-color': note.color}">
             <ion-label>Location was fetched
-                <button ion-button icon-only clear button color="dark" end (click)="deleteLocation()">
+                <button ion-button icon-only clear button color="dark" (click)="deleteLocation()">
                     <ion-icon name="md-trash"></ion-icon>
                 </button>
             </ion-label>
+                
         </ion-item>
 
-        <!-- Save Button will Save all Attributes of the Note in the Object-->
+        <!-- Save Button will Save all Attributes in the Note-Object -->
         <button ion-button block color="dark" (click)="addNewNote()">Save</button>
     </form>
 </ion-content>
-
+<!-- Footer with all additional attributes which can be set -->
 <ion-footer>
     <ion-toolbar>
         <button ion-button icon-only clear button color="dark" (click)="onOpenAddMyLocation()">

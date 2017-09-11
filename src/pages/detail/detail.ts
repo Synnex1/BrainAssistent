@@ -12,11 +12,11 @@ export class DetailPage {
   note: Note;
   
   constructor(public navCtrl: NavController, public navParams: NavParams, public noteService: NoteService) {
-  	this.note = this.navParams.get("note");
+    this.note = this.navParams.get("note");
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DetailPage');
+    console.log(this.note);
   }
 
   deleteNote() {

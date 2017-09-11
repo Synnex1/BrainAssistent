@@ -54,10 +54,9 @@ export class AddNotePage {
 
     myLocationModal.onDidDismiss(data =>{
       if(data != null){
-        var setLocation = {lat:0, lng: 0, check: false};
+        var setLocation = {lat:0, lng: 0};
         setLocation.lat = data.lat;
         setLocation.lng = data.lng;
-        setLocation.check = data.check;
         this.note.location = setLocation;
       } else{
         this.note.location = null;
