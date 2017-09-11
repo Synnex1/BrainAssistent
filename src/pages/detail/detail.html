@@ -2,6 +2,11 @@
 
     <ion-navbar color="primary">
         <ion-title>{{dummyNote.title}}</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="deleteNote()" >
+                <ion-icon name="md-trash" class="red"></ion-icon>
+            </button>
+        </ion-buttons>
     </ion-navbar>
 
 </ion-header>
@@ -38,7 +43,7 @@
 
     
 
-    <ion-grid>
+    <ion-grid *ngIf="dummyNote.pictures.length > 0">
         <ion-row>
             <ion-col col-6 *ngFor="let picture of dummyNote.pictures; let id= index">
                 <ion-card class="block">
@@ -49,6 +54,5 @@
         </ion-row>
     </ion-grid>
 
-    <button ion-button block color="danger" (click)="deleteNote()">Delete Note</button>
-    
+
 </ion-content>
