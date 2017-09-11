@@ -42,6 +42,7 @@ export class AddNotePage {
      
   }
 
+
   public ionViewWillEnter() {
     //update List with the set items ----------------------------------------------->
     //e.g. unhide hidden items
@@ -122,7 +123,7 @@ export class AddNotePage {
         {
           text: 'Orange',
           handler: () => {
-            this.note.color = '#ed9e21';
+            this.note.color = '#ffb363';
           }
         },
         {

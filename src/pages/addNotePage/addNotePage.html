@@ -7,7 +7,7 @@
 <ion-content [ngStyle]="{'background-color': note.color}">
     <form padding>
         <ion-input type="text" placeholder="Title" [(ngModel)]="note.title" name="title" style="font-weight: bold"></ion-input>
-        <ion-textarea type="text" placeholder="Description" [(ngModel)]="note.description" name="description"></ion-textarea>
+        <ion-textarea type="text" placeholder="Description" [(ngModel)]="note.description" name="description" rows="5"></ion-textarea>
 
         <!--Setting type-->
         <ion-item [ngStyle]="{'background-color': note.color}">

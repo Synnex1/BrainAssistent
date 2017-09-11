@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Note } from '../../model/note.model';
 import { NoteService } from '../../services/note.service';
-
+import { ActionSheetController } from 'ionic-angular';
 
 @Component({
   selector: 'page-detail',
@@ -11,7 +11,10 @@ import { NoteService } from '../../services/note.service';
 export class DetailPage {
   note: Note;
   dummyNote: Note;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public noteService: NoteService) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public noteService: NoteService,
+              public actionSheetCtrl: ActionSheetController) {
     this.note = this.navParams.get("note");
     
     /* Initialise the dummyNote which will be saved if Save Button will be clicked */
@@ -50,5 +53,59 @@ export class DetailPage {
 
 
   	this.navCtrl.pop();
+  }
+
+  public editColor(): void{
+    // Pop-up with several colors to select ------------------------------------------>
+    console.log('OPENADDCOLOR WAS CLICKED');
+    let actionSheet = this.actionSheetCtrl.create({
+      title: 'Set Color',
+      buttons: [
+        {
+          text: 'Red',
+          handler: () => {
+            this.dummyNote.color = '#f95e5e';
+          }
+        },
+        {
+          text: 'Blue',
+          handler: () => {
+            this.dummyNote.color = '#4286f4';
+          }
+        },
+        {
+          text: 'Yellow',
+          handler: () => {
+            this.dummyNote.color = '#fdff89';
+          }
+        },
+        {
+          text: 'Green',
+          handler: () => {
+            this.dummyNote.color = '#56ef81';
+          }
+        },
+        {
+          text: 'Orange',
+          handler: () => {
+            this.dummyNote.color = '#ffb363';
+          }
+        },
+        {
+          text: 'Pink',
+          handler: () => {
+            this.dummyNote.color = '#f794eb';
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            this.dummyNote.color = '';
+          }
+        }
+      ]
+    });
+  actionSheet.present();
   }
 }
