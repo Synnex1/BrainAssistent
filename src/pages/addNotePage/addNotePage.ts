@@ -36,6 +36,7 @@ export class AddNotePage {
     } else{
       this.noteService.addNote(this.note);
       console.log('new note was added to the list');
+      console.log(this.note);
       this.navCtrl.pop();   
     }
      
