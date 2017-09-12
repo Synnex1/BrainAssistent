@@ -13,10 +13,6 @@
         <ion-datetime displayFormat="DD MMM, YYYY HH:mm" [min]="minDate" [(ngModel)]="displayDate"></ion-datetime>
     </ion-item>
 
-    <ion-item>
-        <button ion-button full (click)="scheduleNotification()">Schedule</button>
-    </ion-item>
-
-    <button ion-button block color="dark" (click)="setReminder()">Set Reminder</button>
+    <button ion-button block color="primary" (click)="setReminder()">Set Reminder</button>
     <button ion-button block color="danger" (click)="dismissReminder()">Dismiss</button>
 </ion-content>

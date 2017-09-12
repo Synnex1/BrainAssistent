@@ -6,7 +6,6 @@ import { ImagePage } from '../image/image';
 import { NoteService } from '../../services/note.service';
 import { NavController, ModalController } from 'ionic-angular';
 import { Note } from '../../model/note.model';
-import { LocalNotifications } from '@ionic-native/local-notifications';
 import { ToastController } from 'ionic-angular';
 import { ActionSheetController } from 'ionic-angular';
 
@@ -20,7 +19,6 @@ export class AddNotePage {
   constructor(private noteService: NoteService,
               private navCtrl: NavController,
               private modalCtrl: ModalController,
-              private locNotific: LocalNotifications,
               private toastCtrl: ToastController,
               private actionSheetCtrl: ActionSheetController) {
   }
