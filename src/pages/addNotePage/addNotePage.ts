@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { MyLocationPage } from '../my-location/my-location';
 import { ReminderPage } from '../reminder/reminder';
-import { ImagePage } from '../image/image';
 
 import { NoteService } from '../../services/note.service';
 import { NavController, ModalController } from 'ionic-angular';
