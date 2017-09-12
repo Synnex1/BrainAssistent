@@ -15,7 +15,6 @@
 <ion-content padding [ngStyle]="{'background-color': dummyNote.color}">
 		
     <form padding > 
-        <!--<ion-input type="text" placeholder="Type" required [(ngModel)]="note.type" name="type"></ion-input>-->
         <ion-input type="text" placeholder="Title" required [(ngModel)]="dummyNote.title" name="title" class="bold"></ion-input>
         <ion-textarea rows="5" type="text" placeholder="Description" [(ngModel)]="dummyNote.description" name="description"></ion-textarea>
 
@@ -34,9 +33,15 @@
             <ion-label type="date"></ion-label>
         </ion-item>
 
-        <agm-map *ngIf="this.dummyNote.location != null" [latitude]="this.dummyNote.location.lat" [longitude]="this.dummyNote.location.lng" [scrollwheel]="true" [zoom]="17">
-            <agm-marker [latitude]="this.dummyNote.location.lat" [longitude]="this.dummyNote.location.lng"></agm-marker>
-        </agm-map>
+        <!-- If location is set in the node there will be a preview and an option to navigate to the target -->
+        <div *ngIf="this.dummyNote.location != null">
+            <agm-map  [latitude]="this.dummyNote.location.lat" [longitude]="this.dummyNote.location.lng" [scrollwheel]="true" [zoom]="17">
+                <agm-marker [latitude]="this.dummyNote.location.lat" [longitude]="this.dummyNote.location.lng"></agm-marker>
+            </agm-map>
+            <!-- Native app will open to navigate to the target -->
+            <button ion-button block (click)="navigateToTarget()">Navigate to Target</button>
+        </div>
+
 
         <button ion-button block color="light" (click)="editColor()">Set new Color</button>
 

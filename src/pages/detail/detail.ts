@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Note } from '../../model/note.model';
 import { NoteService } from '../../services/note.service';
 import { ActionSheetController } from 'ionic-angular';
+import { Geolocation } from '@ionic-native/geolocation';
+import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 
 @Component({
   selector: 'page-detail',
@@ -11,10 +13,14 @@ import { ActionSheetController } from 'ionic-angular';
 export class DetailPage {
   note: Note;
   dummyNote: Note;
+  myLocation: {lat: number, lng: number};
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public noteService: NoteService,
-              public actionSheetCtrl: ActionSheetController) {
+              public actionSheetCtrl: ActionSheetController,
+              public geolocation: Geolocation,
+              private launchNavigator: LaunchNavigator) {
     this.note = this.navParams.get("note");
     
     /* Initialise the dummyNote which will be saved if Save Button will be clicked */
@@ -51,8 +57,15 @@ export class DetailPage {
     this.note.color = this.dummyNote.color;
     this.note.reminder = this.dummyNote.reminder;
 
-
   	this.navCtrl.pop();
+  }
+
+  public navigateToTarget() {  
+    this.launchNavigator.navigate([this.note.location.lat, this.note.location.lng])
+    .then(
+      success => console.log('Launched navigator'),
+      error => console.log('Error launching navigator', error)
+    );
   }
 
   public editColor(): void{

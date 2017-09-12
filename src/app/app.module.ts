@@ -19,6 +19,7 @@ import { AgmCoreModule } from '@agm/core';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { Camera } from '@ionic-native/camera';
 import { ToastController } from 'ionic-angular';
+import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { ToastController } from 'ionic-angular';
     Geolocation,
     LocalNotifications,
     Camera,
-    ToastController
+    ToastController,
+    LaunchNavigator,
   ]
 })
 export class AppModule {}
