@@ -8,6 +8,8 @@ import { NavController, ModalController } from 'ionic-angular';
 import { Note } from '../../model/note.model';
 import { ToastController } from 'ionic-angular';
 import { ActionSheetController } from 'ionic-angular';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 @Component({
   selector: 'addNotePage',
@@ -15,12 +17,22 @@ import { ActionSheetController } from 'ionic-angular';
 })
 export class AddNotePage {
   note: Note = new Note();
+  base64Image: string = '';
+  options: CameraOptions = {
+    quality: 50,
+    destinationType: this.camera.DestinationType.DATA_URL,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE
+  }
+
 
   constructor(private noteService: NoteService,
               private navCtrl: NavController,
               private modalCtrl: ModalController,
               private toastCtrl: ToastController,
-              private actionSheetCtrl: ActionSheetController) {
+              private actionSheetCtrl: ActionSheetController,
+              private localNotification: LocalNotifications,
+              public camera: Camera) {
   }
 
   public addNewNote() {
@@ -32,9 +44,10 @@ export class AddNotePage {
       });
       toast.present();
     } else{
+      if(this.note.reminder) {
+        this.localNotification.schedule(this.note.reminder);
+      }
       this.noteService.addNote(this.note);
-      console.log('new note was added to the list');
-      console.log(this.note);
       this.navCtrl.pop();   
     }
      
@@ -69,7 +82,7 @@ export class AddNotePage {
   }
 
   public onOpenAddReminder(): void{
-    let reminderModal = this.modalCtrl.create(ReminderPage);
+    let reminderModal = this.modalCtrl.create(ReminderPage, {note: this.note});
     reminderModal.present();
     console.log('OPENADDREMINDER WAS CLICKED');
 
@@ -81,11 +94,44 @@ export class AddNotePage {
     })
   }
 
-  public onOpenAddImage(): void{
-    this.modalCtrl.create(ImagePage, {
-      note: this.note
-    }).present();
-    console.log('OPENADDIMAGE WAS CLICKED');
+  public onOpenAddImage() {
+
+   let actionSheet = this.actionSheetCtrl.create({
+     title: 'Add Picture',
+     buttons: [
+       {
+         text: 'Take Image',
+         handler: () => {
+           this.options.sourceType = this.camera.PictureSourceType.CAMERA;
+           this.getPicture(this.options);
+         }
+       },
+       {
+         text: 'Select Image',
+         handler: () => {
+           this.options.sourceType = this.camera.PictureSourceType.SAVEDPHOTOALBUM;
+           this.getPicture(this.options);
+         }
+       },
+       {
+         text: 'Cancel',
+         role: 'cancel',
+         handler: () => {
+         }
+       }
+      ]
+    });
+
+    actionSheet.present();
+  }
+
+  getPicture(options: CameraOptions) {
+    this.camera.getPicture(options).then((imageData) => {
+      this.base64Image = 'data:image/jpeg;base64,' + imageData;
+      this.note.pictures.push(this.base64Image);
+    }, (err) => {
+      console.log('Photo wurde net genommen');
+    });
   }
 
   public onOpenAddColor(): void{

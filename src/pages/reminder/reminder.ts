@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
 import { ViewController, AlertController, Platform } from 'ionic-angular';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { Note } from '../../model/note.model';
 import * as moment from 'moment';
 import { ToastController } from 'ionic-angular';
 
@@ -9,12 +11,13 @@ import { ToastController } from 'ionic-angular';
   templateUrl: 'reminder.html',
 })
 export class ReminderPage {
+  note: Note
   displayDate: any;
   minDate: any;
   notifyDate: any;
-  notifications: any[] = [];
 
   constructor(public viewCtrl: ViewController,
+              private navParams: NavParams,
               public platform: Platform,
               public alertCtrl: AlertController,
               private localNotifications: LocalNotifications,
@@ -22,34 +25,43 @@ export class ReminderPage {
     //Setting up the dateTime-Picker 
     this.displayDate = moment(new Date()).format();
     this.minDate = this.displayDate;
+    this.note = navParams.get('note');
   }
 
   setReminder() {
-    this.localNotifications.schedule({
+    this.note.reminder = {
       id: 1,
-      title: 'Attention',
-      text: 'Notification',
+      title: this.note.title,
+      text: this.note.description,
       sound: 'file://assets/sounds/notification.mp3',
       at: new Date(Date.parse(this.displayDate))
-    });
+    }
     
-    let toast = this.toastCtrl.create({
-      message: 'Reminder was set',
-      duration: 3000,
-      position: 'bottom'
-    });
-    toast.present();
+    this.displayToast('Reminder saved')
 
-    this.viewCtrl.dismiss();
+    this.dismissReminder();
 
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ReminderPage');
   }
 
   dismissReminder(){
     this.viewCtrl.dismiss();
+  }
+
+  cancelNotifications() {
+    this.localNotifications.cancelAll();
+    this.note.reminder = {};
+    this.displayToast('Reminder canceled');
+
+    this.dismissReminder();
+   }
+
+  displayToast(message: string) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 3000,
+      position: 'bottom'
+    });
+    toast.present();
   }
 
 }
