@@ -10,6 +10,7 @@ import { DetailPage } from '../pages/detail/detail';
 import { AddNotePage } from '../pages/addNotePage/addNotePage';
 import { MyLocationPage } from '../pages/my-location/my-location';
 import { ReminderPage } from '../pages/reminder/reminder';
+import { ImageFullscreenPage } from '../pages/image-fullscreen/image-fullscreen';
 
 import { NoteService } from '../services/note.service';
 import { IonicStorageModule } from '@ionic/storage';
@@ -19,8 +20,6 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 import { Camera } from '@ionic-native/camera';
 import { ToastController } from 'ionic-angular';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
-import { PhotoViewer } from '@ionic-native/photo-viewer';
-import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 
 @NgModule({
@@ -30,11 +29,11 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
     DetailPage,
     AddNotePage,
     MyLocationPage,
-    ReminderPage
+    ReminderPage,
+    ImageFullscreenPage
   ],
   imports: [
     BrowserModule,
-    IonicImageViewerModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     AgmCoreModule.forRoot({
@@ -49,7 +48,8 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
     DetailPage,
     AddNotePage,
     MyLocationPage,
-    ReminderPage
+    ReminderPage,
+    ImageFullscreenPage
   ],
   providers: [
     StatusBar,
@@ -60,8 +60,7 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
     LocalNotifications,
     Camera,
     ToastController,
-    LaunchNavigator,
-    PhotoViewer
+    LaunchNavigator
   ]
 })
 export class AppModule {}

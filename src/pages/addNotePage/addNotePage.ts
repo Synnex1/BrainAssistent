@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MyLocationPage } from '../my-location/my-location';
+import { ImageFullscreenPage } from '../image-fullscreen/image-fullscreen';
 import { ReminderPage } from '../reminder/reminder';
 
 import { NoteService } from '../../services/note.service';
@@ -9,8 +10,6 @@ import { ToastController } from 'ionic-angular';
 import { ActionSheetController } from 'ionic-angular';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-import { PhotoViewer } from '@ionic-native/photo-viewer';
-import { ImageViewerController } from 'ionic-img-viewer';
 
 @Component({
   selector: 'addNotePage',
@@ -33,9 +32,7 @@ export class AddNotePage {
               private toastCtrl: ToastController,
               private actionSheetCtrl: ActionSheetController,
               private localNotification: LocalNotifications,
-              private camera: Camera,
-              private photoViewer: PhotoViewer,
-              private imageViewerCtrl: ImageViewerController) {
+              private camera: Camera) {
   }
 
   //The note will be safed if the title is set
@@ -131,9 +128,9 @@ export class AddNotePage {
     });
   }
 
-  showPhotoFullscreen(picture) {
-    const imageViewer = this.imageViewerCtrl.create(picture)
-    imageViewer.present();
+  openFullscreenImageModal(picture) {
+    let fullscreenImageModal = this.modalCtrl.create(ImageFullscreenPage);
+    fullscreenImageModal.present();
   }
 
   public onOpenAddColor(): void{
