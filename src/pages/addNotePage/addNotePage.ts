@@ -9,6 +9,7 @@ import { ToastController } from 'ionic-angular';
 import { ActionSheetController } from 'ionic-angular';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
 
 @Component({
   selector: 'addNotePage',
@@ -31,7 +32,8 @@ export class AddNotePage {
               private toastCtrl: ToastController,
               private actionSheetCtrl: ActionSheetController,
               private localNotification: LocalNotifications,
-              public camera: Camera) {
+              private camera: Camera,
+              private photoViewer: PhotoViewer) {
   }
 
   //The note will be safed if the title is set
@@ -128,7 +130,7 @@ export class AddNotePage {
   }
 
   showPhotoFullscreen(picture) {
-    
+    this.photoViewer.show(picture);
   }
 
   public onOpenAddColor(): void{

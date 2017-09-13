@@ -26,6 +26,7 @@
     "@ionic-native/launch-navigator": "^4.2.1",
     "@ionic-native/local-notifications": "^4.2.1",
     "@ionic-native/media": "^4.2.1",
+    "@ionic-native/photo-viewer": "^4.2.1",
     "@ionic-native/splash-screen": "3.12.1",
     "@ionic-native/status-bar": "3.12.1",
     "@ionic/storage": "2.0.1",
@@ -79,7 +80,8 @@
       "ionic-plugin-keyboard": {},
       "cordova-plugin-compat": {},
       "cordova-plugin-media": {},
-      "uk.co.workingedge.phonegap.plugin.launchnavigator": {}
+      "uk.co.workingedge.phonegap.plugin.launchnavigator": {},
+      "com-sarriaroman-photoviewer": {}
     },
     "platforms": [
       "android"

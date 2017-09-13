@@ -19,6 +19,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 import { Camera } from '@ionic-native/camera';
 import { ToastController } from 'ionic-angular';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { LaunchNavigator } from '@ionic-native/launch-navigator';
     Camera,
     ToastController,
     LaunchNavigator,
+    PhotoViewer
   ]
 })
 export class AppModule {}
