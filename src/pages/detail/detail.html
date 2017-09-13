@@ -12,11 +12,15 @@
 </ion-header>
 
 
-<ion-content padding [ngStyle]="{'background-color': dummyNote.color}">
+<ion-content [ngStyle]="{'background-color': dummyNote.color}">
 		
-    <form padding > 
-        <ion-input type="text" placeholder="Title" required [(ngModel)]="dummyNote.title" name="title" class="bold"></ion-input>
-        <ion-textarea rows="5" type="text" placeholder="Description" [(ngModel)]="dummyNote.description" name="description"></ion-textarea>
+    <form> 
+        <ion-item>
+            <ion-input type="text" placeholder="Title" required [(ngModel)]="dummyNote.title" name="title" class="bold"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-textarea rows="5" type="text" placeholder="Description" [(ngModel)]="dummyNote.description" name="description"></ion-textarea>
+        </ion-item>
 
         <!-- the type of the note which can be changed -->
         <ion-item [ngStyle]="{'background-color': dummyNote.color}">
@@ -32,6 +36,7 @@
 
         <!-- If reminder is set in the node there will be preview -->
         <ion-item *ngIf="this.dummyNote.reminder" [ngStyle]="{'background-color': dummyNote.color}">
+            <ion-label>Reminder: </ion-label>
             <ion-datetime displayFormat="DD MMM, YYYY HH:mm" [(ngModel)]="reminderDateString" name="date" disabled></ion-datetime>
         </ion-item>
 

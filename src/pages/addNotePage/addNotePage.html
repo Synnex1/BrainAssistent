@@ -11,10 +11,13 @@
 </ion-header>
 
 <ion-content [ngStyle]="{'background-color': note.color}">
-    <form padding>
-        <ion-input type="text" placeholder="Title" [(ngModel)]="note.title" name="title" style="font-weight: bold"></ion-input>
-        <ion-textarea type="text" placeholder="Description" [(ngModel)]="note.description" name="description" rows="5"></ion-textarea>
-
+    <form>
+        <ion-item>
+            <ion-input type="text" placeholder="Title" [(ngModel)]="note.title" name="title" style="font-weight: bold"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-textarea type="text" placeholder="Description" [(ngModel)]="note.description" name="description" rows="5"></ion-textarea>
+        </ion-item>
         <!--Setting type-->
         <ion-item [ngStyle]="{'background-color': note.color}">
             <ion-label>Type: </ion-label>
