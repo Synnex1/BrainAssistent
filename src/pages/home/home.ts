@@ -74,7 +74,7 @@ export class HomePage {
           }
         },
         {
-          text: 'Zurücksetzen',
+          text: 'Cancel',
           role: 'cancel',
           handler: () => {
             this.type = '';
