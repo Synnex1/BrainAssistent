@@ -7,6 +7,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { ImageFullscreenPage } from '../image-fullscreen/image-fullscreen';
 import * as moment from 'moment';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 @Component({
   selector: 'page-detail',
@@ -24,7 +25,8 @@ export class DetailPage {
               public actionSheetCtrl: ActionSheetController,
               public geolocation: Geolocation,
               private launchNavigator: LaunchNavigator,
-              private modalCtrl: ModalController) {
+              private modalCtrl: ModalController,
+              private localNotifications: LocalNotifications) {
     
     this.note = this.navParams.get("note");
     
@@ -45,6 +47,7 @@ export class DetailPage {
 
   deleteNote() {
   	this.noteService.removeNote(this.note);
+    this.localNotifications.cancelAll();
   	this.navCtrl.pop();
   }
 

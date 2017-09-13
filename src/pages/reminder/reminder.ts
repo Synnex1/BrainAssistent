@@ -23,12 +23,14 @@ export class ReminderPage {
               private localNotifications: LocalNotifications,
               private toastCtrl: ToastController) {
     //Setting up the dateTime-Picker 
+    this.note = navParams.get('note');
     this.displayDate = moment(new Date()).format();
     this.minDate = this.displayDate;
-    this.note = navParams.get('note');
   }
 
   setReminder() {
+    this.localNotifications.cancelAll();
+
     this.note.reminder = {
       id: 1,
       title: this.note.title,
