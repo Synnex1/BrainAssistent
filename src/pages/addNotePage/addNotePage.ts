@@ -129,7 +129,7 @@ export class AddNotePage {
   }
 
   openFullscreenImageModal(picture) {
-    let fullscreenImageModal = this.modalCtrl.create(ImageFullscreenPage);
+    let fullscreenImageModal = this.modalCtrl.create(ImageFullscreenPage, {picture: picture});
     fullscreenImageModal.present();
   }
 
