@@ -129,8 +129,8 @@ export class AddNotePage {
     });
   }
 
-  showPhotoFullscreen(picture) {
-    this.photoViewer.show(picture);
+  showPhotoFullscreen(id) {
+    this.photoViewer.show(this.note.pictures[id]);
   }
 
   public onOpenAddColor(): void{
