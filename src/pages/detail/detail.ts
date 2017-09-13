@@ -44,7 +44,6 @@ export class DetailPage {
   }
 
   editNote() {
-
     this.note.title = this.dummyNote.title;
     this.note.description = this.dummyNote.description;
     this.note.type = this.dummyNote.type;
