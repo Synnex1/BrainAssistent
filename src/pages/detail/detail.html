@@ -32,10 +32,9 @@
 
         <!-- If reminder is set in the node there will be preview -->
         <ion-item *ngIf="this.dummyNote.reminder" [ngStyle]="{'background-color': dummyNote.color}">
-            <ion-datetime displayFormat="DD MMM, YYYY HH:mm"[(ngModel)]="this.dummynote.reminder.at"></ion-datetime>
+            <ion-datetime displayFormat="DD MMM, YYYY HH:mm"></ion-datetime>
         </ion-item>
 
-        <button ion-button block color="light" (click)="editColor()">Set new Color</button>
 
         <!-- If location is set in the node there will be a preview and an option to navigate to the target -->
         <div *ngIf="this.dummyNote.location != null">
@@ -56,7 +55,12 @@
             </ion-row>
         </ion-grid>   
 
-        <button ion-button block color="secondary" (click)="editNote()">Save</button>
     </form>
 
 </ion-content>
+<ion-footer>
+    <ion-toolbar>
+        <button ion-button block color="light" (click)="editColor()">Set new Color</button>            
+        <button ion-button block color="secondary" (click)="editNote()">Save</button>
+    </ion-toolbar>
+</ion-footer>

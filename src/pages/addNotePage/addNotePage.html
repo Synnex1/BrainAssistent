@@ -1,6 +1,12 @@
 <ion-header>
     <ion-navbar color="primary">
         <ion-title>New Note</ion-title>
+
+        <!-- Save Button will Save all Attributes in the Note-Object -->        
+        <ion-buttons end >
+            <button ion-button (click)="addNewNote()">Save 
+            </button>
+        </ion-buttons>
     </ion-navbar>
 </ion-header>
 
@@ -35,8 +41,7 @@
             </ion-label>
         </ion-item>
 
-        <!-- Save Button will Save all Attributes in the Note-Object -->
-        <button ion-button block color="secondary" (click)="addNewNote()">Save</button>
+        
     </form>
 </ion-content>
 <!-- Footer with all additional attributes which can be set -->
