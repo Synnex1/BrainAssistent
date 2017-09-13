@@ -133,6 +133,7 @@ export class AddNotePage {
 
   showPhotoFullscreen(picture) {
     const imageViewer = this.imageViewerCtrl.create(picture)
+    imageViewer.present();
   }
 
   public onOpenAddColor(): void{
