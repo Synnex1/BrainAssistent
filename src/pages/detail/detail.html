@@ -42,13 +42,15 @@
 
 
         <!-- If location is set in the node there will be a preview and an option to navigate to the target -->
-        <div *ngIf="this.dummyNote.location != null">
-            <agm-map  [latitude]="this.dummyNote.location.lat" [longitude]="this.dummyNote.location.lng" [scrollwheel]="true" [zoom]="17">
-                <agm-marker [latitude]="this.dummyNote.location.lat" [longitude]="this.dummyNote.location.lng"></agm-marker>
-            </agm-map>
-            <!-- Native app will open to navigate to the target -->
-            <button ion-button block (click)="navigateToTarget()">Navigate to Target</button>
-        </div>
+        <ion-item *ngIf="this.dummyNote.location != null">
+            <div>
+                <agm-map  [latitude]="this.dummyNote.location.lat" [longitude]="this.dummyNote.location.lng" [scrollwheel]="true" [zoom]="17">
+                    <agm-marker [latitude]="this.dummyNote.location.lat" [longitude]="this.dummyNote.location.lng"></agm-marker>
+                </agm-map>
+                <!-- Native app will open to navigate to the target -->
+                <button ion-button block (click)="navigateToTarget()">Navigate to Target</button>
+            </div>
+        </ion-item>
 
         <ion-grid *ngIf="dummyNote.pictures.length > 0" [ngStyle]="{'background-color': dummyNote.color}">
             <ion-row>
