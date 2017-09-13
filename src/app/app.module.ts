@@ -20,6 +20,7 @@ import { Camera } from '@ionic-native/camera';
 import { ToastController } from 'ionic-angular';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
+import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { PhotoViewer } from '@ionic-native/photo-viewer';
   ],
   imports: [
     BrowserModule,
+    IonicImageViewerModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     AgmCoreModule.forRoot({

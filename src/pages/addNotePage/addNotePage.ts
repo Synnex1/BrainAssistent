@@ -10,6 +10,7 @@ import { ActionSheetController } from 'ionic-angular';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { PhotoViewer } from '@ionic-native/photo-viewer';
+import { ImageViewerController } from 'ionic-img-viewer';
 
 @Component({
   selector: 'addNotePage',
@@ -33,7 +34,8 @@ export class AddNotePage {
               private actionSheetCtrl: ActionSheetController,
               private localNotification: LocalNotifications,
               private camera: Camera,
-              private photoViewer: PhotoViewer) {
+              private photoViewer: PhotoViewer,
+              private imageViewerCtrl: ImageViewerController) {
   }
 
   //The note will be safed if the title is set
@@ -129,8 +131,8 @@ export class AddNotePage {
     });
   }
 
-  showPhotoFullscreen(id) {
-    this.photoViewer.show(this.note.pictures[id]);
+  showPhotoFullscreen(picture) {
+    const imageViewer = this.imageViewerCtrl.create(picture)
   }
 
   public onOpenAddColor(): void{

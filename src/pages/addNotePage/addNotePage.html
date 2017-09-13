@@ -44,7 +44,7 @@
         <ion-grid *ngIf="note.pictures.length > 0" [ngStyle]="{'background-color': note.color}">
             <ion-row>
                 <ion-col col-6 *ngFor="let picture of note.pictures; let id= index">
-                    <ion-card class="block" (click)="showPhotoFullscreen(id)">
+                    <ion-card class="block" (click)="showPhotoFullscreen(picture)">
                         <img [src]="picture" *ngIf="picture">
                     </ion-card>
                 </ion-col>
