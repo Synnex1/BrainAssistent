@@ -52,6 +52,7 @@ export class DetailPage {
     this.note.color = this.dummyNote.color;
     this.note.reminder = this.dummyNote.reminder;
 
+    this.noteService.saveNotes();
   	this.navCtrl.pop();
   }
 
