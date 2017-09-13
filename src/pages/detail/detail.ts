@@ -17,7 +17,7 @@ export class DetailPage {
   note: Note;
   dummyNote: Note;
   myLocation: {lat: number, lng: number};
-  reminderDateString: any;
+  reminderDateString: any = "";
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -41,8 +41,10 @@ export class DetailPage {
     this.dummyNote.pictures = this.note.pictures;
     this.dummyNote.color = this.note.color;
     this.dummyNote.reminder = this.note.reminder;
-
-    this.reminderDateString = moment(this.dummyNote.reminder.at).format();
+    if(this.dummyNote.reminder) {
+      this.reminderDateString = moment(this.dummyNote.reminder.at).format();  
+    }
+    
   }
 
   deleteNote() {
