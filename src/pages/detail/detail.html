@@ -32,7 +32,7 @@
 
         <!-- If reminder is set in the node there will be preview -->
         <ion-item *ngIf="this.dummyNote.reminder" [ngStyle]="{'background-color': dummyNote.color}">
-            <ion-label type="date">{{dummyNote.reminder}}</ion-label>
+            <ion-datetime displayFormat="DD MMM, YYYY HH:mm"[(ngModel)]="this.dummynote.reminder.at"></ion-datetime>
         </ion-item>
 
         <button ion-button block color="light" (click)="editColor()">Set new Color</button>
