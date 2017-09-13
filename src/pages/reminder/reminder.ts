@@ -37,7 +37,7 @@ export class ReminderPage {
       at: new Date(Date.parse(this.displayDate))
     }
     
-    this.displayToast('Reminder saved')
+    this.displayToast('Reminder saved');
 
     this.dismissReminder();
 

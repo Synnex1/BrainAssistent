@@ -20,10 +20,8 @@ export class HomePage {
       this.notes = notes;
     })
   }
-
-  ionViewWillEnter() {
-    console.log('home Note is following');
-    console.log(this.notes);    
+  // Notelist will be updated everytime you enter the view
+  ionViewWillEnter() {  
     this.setFilteredNotes();
   }
 

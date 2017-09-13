@@ -38,11 +38,6 @@ export class DetailPage {
     
   }
 
-  ionViewDidLoad() {
-    console.log('Detail Note is following:');
-    console.log(this.note);
-  }
-
   deleteNote() {
   	this.noteService.removeNote(this.note);
   	this.navCtrl.pop();
@@ -61,6 +56,9 @@ export class DetailPage {
   	this.navCtrl.pop();
   }
 
+  // User will be asked which application to start the navigation to target
+  // then the application will start 
+  // Startpoint (current position) , target (note.location)
   public navigateToTarget() {  
     this.launchNavigator.navigate([this.note.location.lat, this.note.location.lng])
     .then(
@@ -70,8 +68,6 @@ export class DetailPage {
   }
 
   public editColor(): void{
-    // Pop-up with several colors to select ------------------------------------------>
-    console.log('OPENADDCOLOR WAS CLICKED');
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Set Color',
       buttons: [

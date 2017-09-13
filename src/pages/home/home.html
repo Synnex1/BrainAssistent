@@ -14,6 +14,7 @@
 <ion-content>
     <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="setFilteredNotes()">  </ion-searchbar>
 
+    <!-- List of Notes  -->
     <ion-list>
         <ion-card *ngFor="let note of notes" (click)="viewDetails(note)" >
             <ion-item [ngStyle]="{'background-color': note.color}">

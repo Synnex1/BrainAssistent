@@ -34,6 +34,7 @@ export class AddNotePage {
               public camera: Camera) {
   }
 
+  //The note will be safed if the title is set
   public addNewNote() {
     if(this.note.title == ""){
       let toast = this.toastCtrl.create({
@@ -52,18 +53,11 @@ export class AddNotePage {
      
   }
 
-
-  public ionViewWillEnter() {
-    //update List with the set items ----------------------------------------------->
-    //e.g. unhide hidden items
-    console.log(this.note);
-  }
-
   public onOpenAddMyLocation(): void{
     let myLocationModal = this.modalCtrl.create(MyLocationPage);
     myLocationModal.present();
-    console.log('OPENADDMYLOCATION WAS CLICKED');
 
+    // If Location was set it will be written in the attribute
     myLocationModal.onDidDismiss(data =>{
       if(data != null){
         var setLocation = {lat:0, lng: 0};
@@ -83,8 +77,8 @@ export class AddNotePage {
   public onOpenAddReminder(): void{
     let reminderModal = this.modalCtrl.create(ReminderPage, {note: this.note});
     reminderModal.present();
-    console.log('OPENADDREMINDER WAS CLICKED');
 
+    // date will be set in the attribute
     reminderModal.onDidDismiss(data =>{
       if(data != null) {
         var dateString = data;
@@ -129,13 +123,11 @@ export class AddNotePage {
       this.base64Image = 'data:image/jpeg;base64,' + imageData;
       this.note.pictures.push(this.base64Image);
     }, (err) => {
-      console.log('Photo wurde net genommen');
+      console.log('could not get access to picture');
     });
   }
 
   public onOpenAddColor(): void{
-    // Pop-up with several colors to select ------------------------------------------>
-    console.log('OPENADDCOLOR WAS CLICKED');
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Set Color',
       buttons: [

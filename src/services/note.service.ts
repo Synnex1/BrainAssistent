@@ -9,6 +9,7 @@ export class NoteService {
 
     constructor(private storage: Storage) {
     }
+
     saveNotes() {
         this.storage.set("notes", this.notes);
     }
@@ -40,7 +41,6 @@ export class NoteService {
     }
 
     editNote(note: Note) {
-        
     }
 
     filterNotes(searchTerm, type) {
