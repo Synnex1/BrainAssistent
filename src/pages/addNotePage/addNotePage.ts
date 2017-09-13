@@ -79,7 +79,7 @@ export class AddNotePage {
     let reminderModal = this.modalCtrl.create(ReminderPage, {note: this.note});
     reminderModal.present();
 
-    // date will be set in the attribute
+    // deprecated: reminderPage saves the reminder directly into the note, and doesnt return any data
     reminderModal.onDidDismiss(data =>{
       if(data != null) {
         var dateString = data;
