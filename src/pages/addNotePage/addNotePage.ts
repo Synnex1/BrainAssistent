@@ -127,6 +127,10 @@ export class AddNotePage {
     });
   }
 
+  showPhotoFullscreen(picture) {
+    
+  }
+
   public onOpenAddColor(): void{
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Set Color',

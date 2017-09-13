@@ -41,7 +41,22 @@
             </ion-label>
         </ion-item>
 
+<<<<<<< HEAD
         
+=======
+        <ion-grid *ngIf="dummyNote.pictures.length > 0" [ngStyle]="{'background-color': dummyNote.color}">
+            <ion-row>
+                <ion-col col-6 *ngFor="let picture of dummyNote.pictures; let id= index">
+                    <ion-card class="block" (click)="showPhotoFullscreen(picture)">
+                        <img [src]="picture" *ngIf="picture">
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+        </ion-grid>   
+
+        <!-- Save Button will Save all Attributes in the Note-Object -->
+        <button ion-button block color="secondary" (click)="addNewNote()">Save</button>
+>>>>>>> d1c6242d2ec9098af118929953033e0e9d7879bc
     </form>
 </ion-content>
 <!-- Footer with all additional attributes which can be set -->
