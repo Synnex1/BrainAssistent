@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { Note } from '../../model/note.model';
 import { NoteService } from '../../services/note.service';
 import { ActionSheetController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
+import { ImageFullscreenPage } from '../image-fullscreen/image-fullscreen';
+import * as moment from 'moment';
 
 @Component({
   selector: 'page-detail',
@@ -14,13 +16,15 @@ export class DetailPage {
   note: Note;
   dummyNote: Note;
   myLocation: {lat: number, lng: number};
+  reminderDateString: any;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public noteService: NoteService,
               public actionSheetCtrl: ActionSheetController,
               public geolocation: Geolocation,
-              private launchNavigator: LaunchNavigator) {
+              private launchNavigator: LaunchNavigator,
+              private modalCtrl: ModalController) {
     
     this.note = this.navParams.get("note");
     
@@ -35,7 +39,8 @@ export class DetailPage {
     this.dummyNote.pictures = this.note.pictures;
     this.dummyNote.color = this.note.color;
     this.dummyNote.reminder = this.note.reminder;
-    
+
+    this.reminderDateString = moment(this.dummyNote.reminder.at).format();
   }
 
   deleteNote() {
@@ -65,6 +70,15 @@ export class DetailPage {
       success => console.log('Launched navigator'),
       error => console.log('Error launching navigator', error)
     );
+  }
+
+  openFullscreenImageModal(picture) {
+    let fullscreenImageModal = this.modalCtrl.create(ImageFullscreenPage, {picture: picture});
+    fullscreenImageModal.present();
+  }
+
+  showDate() {
+    return moment(this.dummyNote.reminder.at).format();
   }
 
   public editColor(): void{
